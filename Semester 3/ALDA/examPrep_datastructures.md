@@ -1,12 +1,15 @@
 # Table of Contents
+
 1. [Introduction of ALDA](#first)
 2. [Data Structures: Arrays & Linked Lists](#second)
 3. [Complexity](#third)
 4. [Data Structures: Stacks, Queues & Bags](#fourth)
+5. [Data Structures: Trees, Symbol table & Binary Search Tree](#fifth)
 
 # 1. ALDA_Introduction <a name="first"> </a>
 
 ## Algorithm definition
+
 - Used in computer science to describe a problem-solving method suitable for an implementation as a computer program
 - Method or program to calculate a (mathematical) problem using a certain computational model
 - Implements a (mathematical) function
@@ -18,6 +21,7 @@
   - Graph algorithms: shortest path, search in a network, ...
 
 ## Typical operations on data
+
 - Creation / Initialization
 - Reading / Retrieving
 - Updating (often achieved by deleting and (re-) creation)
@@ -40,6 +44,7 @@
 ## Java and ADTs
 
 How does Java support the need for an ADT?
+
 - A Java interface: declares methods to be implemented
   - These methods are public
   - The interface may be package-private
@@ -49,10 +54,12 @@ How does Java support the need for an ADT?
 - This is a good approach: to work at a higher level of abstraction, so separate different parts of a complex system
   
 Question: why is a constructor never part of an interface?
+
 - Because no data members in an interface to initialize
 - All data members in interfaces are public static final by default
 
 ## Arrays
+
 - A linear sequence of objects of the same type
 - Size set at initialization and cannot be changed
 - Items can be accessed through an integer index, ranging from 0 to n-1
@@ -64,6 +71,7 @@ a[0], a[1], a[2], ..., a[n-3], a[n-2], a[n-1]
 ```
 
 ### Example: Sieve of the Eratosthenes
+
 - Algorithm to get prime numbers of a pre-defined number range:
 
 ```java
@@ -84,6 +92,7 @@ for (int i = 0; i < n; i++) {
 ```
 
 ## Linked Lists
+
 - Most important attributes of a Linked List:
   - Linear structure: every list node points to the next list node
   - Simple operations, like insert and remove
@@ -124,22 +133,27 @@ public class LinkedList<E> {
 ## Data structures: Linked List & array
 
 A Linked List as a **data structure** and a **general purpose** Linked List class are two different things:
+
 - As a **data structure**: a Linked List is just one Node class with a next attribute of type Node. No getters or setter or other methods, only a constructor is needed. It's only purpose of existence it to be used in an algorithm. A private static inner class is enough
 - A **general purpose** Linked List consists of much more code and is complexer. It should function in every possible way, so it is intentionally robust, like the Linked List that is provided in the <ins>java.util.LinkedList</ins> package
 
 ## Head / Tail / Circular convention
+
 - First node of the list can contain the first item of the list, but can also always be *null*
 - If the first node never contains an item, this node is called the **dummy head**. In this case, the first item is stored in the second node
 - Same with tail: last node can never contain an item, which is the called the **dummy tail**. Here, the last item is stored in the next-to-last node
 - If **Circular convention** is used, the last node points to the first, creating a circle
 
 ## Options of the final node on Linked Lists
+
 ![Linked List end options](pictures/linkedlist_end_options.png)
+
 - A: "Normal" Linked List, no conventions
 - B: Tail convention with dummy tail
 - C: Circular convention
 
 ## Java - Linked List deletion
+
 - Node reference x points to the node, that has it's next node reference pointing to the node that we want to remove
 - To remove the node following node x, we use the statements:
 
@@ -147,6 +161,7 @@ A Linked List as a **data structure** and a **general purpose** Linked List clas
 temp = x.next;
 x.next = temp.next;
 ```
+
 - or simply
 
 ```java
@@ -154,6 +169,7 @@ x.next = x.next.next;
 ```
 
 ## Java - Linked List insertion
+
 - To insert a node t into a list at a position following node x, we use the statements:
 
 ```java
@@ -162,6 +178,7 @@ x.next = t;
 ```
 
 ## Elementary List Processing
+
 - Linked Lists as easier re-arrangeable data structures
 - Instead of avoiding an `IndexOutOfBoundsException` with arrays with Linked Lists we have to check the references in the list
 - Basic operations on lists:
@@ -170,8 +187,9 @@ x.next = t;
   - Usage of insertion sort algorithm
 
 ## List traversal
+
 - As a contrast to arrays, a method to traverse the list is needed
-- If **x** refers to the first node of a list, the final node has a null link 
+- If **x** refers to the first node of a list, the final node has a null link
 
 ```java
 Node t = x;
@@ -183,12 +201,14 @@ while(t != null) {
 ```
 
 ## Head and tail conventions in Linked Lists
+
 - Circular, never empty Linked List
 - Linked List with head reference and dummy tail (most common approach)
 - Linked List with dummy head and dummy tail
 - Linked List with dummy head and tail nodes
 
 ## Head and tail conventions: circular lists
+
 - First insert:
 
 ```java
@@ -227,6 +247,7 @@ head.next == head;
 ```
 
 ## Head and tail conventions: dummy tail
+
 - Initialize:
 
 ```java
@@ -267,6 +288,7 @@ return head == null;
 ```
 
 ## Head and tail conventions: dummy head and dummy tail
+
 - Initialize:
 
 ```java
@@ -303,6 +325,7 @@ return head.next == null;
 ```
 
 ## Josephus problem
+
 - The josephus problem refers to the problem to select someone to be a leader
 - The identity of the elected leader is a function of *N(=9)* and *M(=5)*
 - In a range from 1 - 9, one possible outcome can be `5, 1, 7, 4, 3, 6, 9, 2`
@@ -346,6 +369,7 @@ public class Josephus {
 ```
 
 ## Possible extension: double Linked List
+
 - By adding more links, we can add the capability to move backwards through a Linked List
 - We can support operations to *"find the item before a given item"* by using a doubly Linked List in which we maintain two links for each node:
   - One (`prev`) to the previous item
@@ -359,6 +383,7 @@ public class Josephus {
 # 3. Complexity of Algorithms <a name="third"> </a>
 
 ## Analysis of algorithms: the goals
+
 - Perform efficiency analysis
 - Compare different algorithms fir the same task
 - Predict their efficiency independent of the environment
@@ -367,6 +392,7 @@ public class Josephus {
   - **Theoretical** analysis: before any implementation
 
 ## Analysis of algorithms
+
 - How to consider the properties of algorithms?
   - Analyse the operations on data
   - What do we know about the expected input data?
@@ -379,6 +405,7 @@ public class Josephus {
   - Big-Oh notation, useful in derivation of the complexity
 
 ## Empirical analysis
+
 - Start with existing code
 - What can be detected by empirical analysis?
 - What is the benefit of an actual running time evaluation?
@@ -403,11 +430,13 @@ public int gaussianSumSimple(int n) {
   return sum;
 }
 ```
+
 **Theoretical analysis**: If *N = 30*, then the numbers of additions when the loop is executed is 30. If *N = 30*, then it is 300. --> 10 times as much </br>
 **Equal to the growth in N, which means a linear growth** </br>
 **Empirical analysis**: Tun both programmes for different values on *N* and measure the execution time
 
 ## The number N
+
 - Also known as 'size' of the problem
 - *Problem*: As in math, the algorithm we want to implement
 - *Size*: N, of the data structure when it is completely filled with the items we are going to use in the algorithm. In the Gaussian Sum example: just the number of integers we are adding to get the sum of them all
@@ -415,6 +444,7 @@ public int gaussianSumSimple(int n) {
 ## Gaussian Sum Formula
 
 A bit of secondary school math:
+
 ```
     sum(N) =   1   +   2   +   3   + .... +  N-1  +   N
     sum(N) =   N   +  N-1  +  N-2  + .... +   2   +   1
@@ -440,6 +470,7 @@ public int gaussianSum(int n) {
 Number of operations needed is **independent of the value n**. Complexity is **constant**: no growth
 
 ## Empirical analysis
+
 - Empirical analysis takes a significant amount of time
   - Algorithms need to be implemented first
   - Time between tests, can take hours or even days
@@ -449,6 +480,7 @@ Number of operations needed is **independent of the value n**. Complexity is **c
   - Perverse data: assure us that our program can handle any input
 
 ## Summary summation example
+
 - In the first implementation we see a relation between the expenditure and the size of the input, i.e. the expenditure grows with increasing N. The expenditure grows linear
 - In the second implementation the calculation method is independent of the size N. The expenditure is constant
 - Apparently the running time depends on the input. It is not always possible to rule this out, but at least we can give it a try
@@ -456,6 +488,7 @@ Number of operations needed is **independent of the value n**. Complexity is **c
 ## Theoretical analysis of algorithms
 
 How to do this analysis of algorithms?
+
 - In the analysis of an algorithm we must identify the operations that matter
 - The number on operations involved can be large, but the performance of an algorithm mainly depends on loops
 - The analysis starts with looking at the structure of the algorithm, e.g. are loops performed as a next statement or as a statement inside another loop?
@@ -470,6 +503,7 @@ How to do this analysis of algorithms?
 ## Growth functions
 
 A simple mathematical function is used to denote the complexity of algorithms
+
 - Most algorithms have a *primary parameter N*, the 'size of the problem', that affects the running time most significant
 - The *parameter N* might be:
   - The size of a file to be sorted or searched
@@ -478,18 +512,20 @@ A simple mathematical function is used to denote the complexity of algorithms
 - Usually **N** is directly proportional to the size of the data set being processed
 
 ## Dimension of the problem
+
 - Our goal is to express the resource requirements (mostly time, but also space) in terms of *N*, using mathematical formulas
 - We are only interested in large values of N
 - We can use the following functions to make classifications for all algorithms:
 
 ![functions](pictures/complexity_functions.png)
 
-- The functions are: 1, *log(x), x, x * log(x), x^2, x^3, ...*
+- The functions are: 1, *log(x), x, x* log(x), x^2, x^3, ...*
 
 ## Formulas from the Gaussian sums
+
 - The first implementation had a linear running time, which means the formula is *N*
   - When a limited amount of processing is done on each input element, the running time of the program is linear. This running time occurs e.g. in a method where we search a value in an array or list
-- The second implementation had a constant running time, which means the formula is *1* 
+- The second implementation had a constant running time, which means the formula is *1*
   - Most instructions of most programs are executed once or at most only a few times. If all the instructions of a program have this property, we say that the program's running time is constant
   - Doubling the input length *N* hardly influences the running time
 
@@ -518,10 +554,12 @@ public int binSearch(int key) {
 ```
 
 The algorithm has a logarithmic running time
+
 - When the running time of a program is logarithmic, then the running time grows slower than any positive power of the N
 - Binary search is most famous example for logarithmic running time
 
 ## Growth function: N * log(N)
+
 - The N * log(N) running time can arise when algorithms solve a problem by breaking it into smaller subproblems, solving independently, and then combining the solutions
 - When N doubles, the running time grows a bit more, but always slower than N to a power above 1
 - Example: good sorting methods, e.g. Quicksort and Heapsort
@@ -551,6 +589,7 @@ public int count(int[] a) {
 ```
 
 Growth functions: N^2 and N^3
+
 - N^2:
   - When the running time of an algorithm is quadratic, that algorithm is of practical use for only relatively small problems
   - Quadratic running times typically arise in algorithms that process all pairs of data
@@ -571,11 +610,13 @@ Growth functions: N^2 and N^3
 If these values are in milliseconds, then N * log(N) for 100.000 entries would take roughly 28 Minutes
 
 ## Big-Oh Notation
+
 - Big-Oh notation to compare the efficiency of algorithms
   - In the most cases the implementation of the operations on the data structure determines the efficiency of algorithms
   - On the other hand the choice of the underlying data structure also influences the efficiency. This means if we decide to change the data structure, algorithms can become 'faster'
 
 ## Big-Oh notation of f(N)
+
 - To bound the error that we make when we ignore small terms in formulas
 - To bound the error that we make when we ignore parts of program that contribute a small amount to the total being analysed
 - To allow us to classify algorithms according to upper bounds on their total running times
@@ -583,6 +624,7 @@ If these values are in milliseconds, then N * log(N) for 100.000 entries would t
   - The O-notation denotes the relation 'is proportional to'
 
 ## Examples for O-notation
+
 - Essentially, we can expand expressions using O-notation as through the O were not there, then drop all but the largest term
 - For example, if we expand the expression:
 
@@ -641,6 +683,7 @@ for (int i = 0; i < n; i++) {           // O(N)
   - Trie (a data structure where keys are strings)
 
 ## Simple Stack
+
 - Last in first out principle (LIFO)
 - Stack ADT:
   - Push method: Add an item to the stack
@@ -651,6 +694,7 @@ for (int i = 0; i < n; i++) {           // O(N)
 ![stack](pictures/stack.png)
 
 ## For what purposes are stacks needed
+
 - Storing items that have to be used later on in some kind of process
 - Storing actions that might need to be redone (undo-redo stacks)
 - As a temporary data structure in an algorithm to save intermediate results
@@ -684,6 +728,7 @@ interface Stack<E> {
   boolean isFull();
 }
 ```
+
 Now, the ADT is a usable java interface. The interface is also generic to make the data structure usable for every data type while also maintaining type safety.
 
 ## Array implementation of a string stack 1
@@ -738,6 +783,7 @@ public String pop() [
 We can implement the push and pop operations for a push-down stack ADT in a <ins>constant time</ins>, using either arrays of Linked Lists
 
 ## Queue
+
 - A queue is a first in first out data structure (FIFO)
 - A queue is a buffer for waiting
 
@@ -761,6 +807,7 @@ interface Queue<Item> { // java interface using "item" as data type
 ```
 
 ## Implementation of queues
+
 - array implementation:
 
 ```java
@@ -873,6 +920,7 @@ public class LLQueue<Item> implements Queue<Item> {
 We can implement `get` and `put` operations for the FIFO queue ADT in *constant time*, using either arrays or Linked Lists
 
 ## Bags
+
 - ADT of bag:
 
 ```java
@@ -883,8 +931,55 @@ adt Bag {
   int size()
 }
 ```
+
 - Removal of items is not possible. A bag is just a bag to put items in
   - To search for a specific item, an iterator is needed
 - Also, do not expect that the iterator gives you the items in the same order as they were added
   - Bags are not sorted
 - The ADT is extendable, so the bag is sorted. a new name could be: **SortedBag**
+
+# 5. DataStructures_3 <a name="fifth"> </a>
+
+## Tree
+
+What do we have to know about trees?
+
+- It starts with a node: The root
+- Nodes have children, which are also nodes
+- In a binary tree, a node can have 0, 1 or 2 children, not more and not less
+- Children always have one parent
+- A tree is like a family tree
+- A tree has levels
+
+## Natural traversal of a tree
+
+A standard (default) way of walking along the nodes of the tree (so called **Tree traversal**) starts at the root and moves around the tree, anti-clockwise along all nodes:
+
+![tree traversal](pictures/tree_traversal.png)
+
+## Definition of a complete Binary Tree
+
+A **complete** tree has these properties:
+
+- All levels, except the lowest, are completely filled
+- The lowest level is filled from left to right
+
+![binary tree](pictures/binary_tree.png)
+
+## Filling a tree level ordered
+
+```java
+private TNode fillTree(E[] arr) {
+  Queue<TNode> itemsQ = new Queue<>();
+
+  for (E it : arr){
+    itemsQ.put(new TNode(it));
+  }
+
+  Queue<TNode> parentQ = new Queue<>();
+  TNode root = itemsQ.get();
+  parentQ.put(root);
+
+  TNode parent, left, right;
+}
+```
