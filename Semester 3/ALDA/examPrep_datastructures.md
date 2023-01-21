@@ -356,7 +356,7 @@ public class Josephus {
   - `insert after`
   - `insert before`
 
-# 3. Complexity of Algorithms 
+# 3. Complexity of Algorithms <a name="third">
 
 ## Analysis of algorithms: the goals
 - perform efficiency analysis
