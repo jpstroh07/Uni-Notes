@@ -625,4 +625,63 @@ for (int i = 0; i < n; i++) {           // O(N)
 ```
 
 # 4. DataStructures_2 <a name="fourth"> </a>
-s
+
+## Rerun: data structures
+- basic data structures:
+  - array
+  - list
+- elementary data structures
+  - stack (LIFO)
+  - queue (FIFO)
+  - Bag (just a bag to throw items in)
+- higher-structured data structures
+  - tree
+  - hash (a key-value storage structure)
+  - heap (priority queue)
+  - trie (a data structure where keys are strings)
+
+## Simple Stack
+- last in first out principle (LIFO)
+- stack ADT:
+  - push method: add an item to the stack
+  - pop method: remove and get an item of the stack
+  - isEmpty method: check if the stack is empty
+  - isFull method: check if the stack is full (only possible if the stack is finite)
+
+![stack](pictures/stack.png)
+
+## For what purposes are stacks needed
+- storing items that have to be used later on in some kind of process
+- storing actions that might need to be redone (undo-redo stacks)
+- as a temporary data structure in an algorithm to save intermediate results
+- ...
+
+## Abstract Data Type Stack
+
+**Stack with focus on the most prominent operations** </br>
+A push-down stack is an ADT that comprises two basic operations: **push** (insert) an item and **pop** (remove & return) the last inserted item </br>
+Definition of a finite generic stack as an ADT interface:
+
+```java
+adt Stack<E> {
+  Stack(int size)    // constructor, sets size
+  void push(E item)  // to insert an item
+  E pop()            // to remove and get the last inserted item
+  boolean isEmpty()  // to check if the stack is empty
+  boolean isFull()   // to check if the stack is full
+}
+```
+
+The stored items are yet unknown type. We could define a stack for a specific type of item. If we like to store parenthesis, we need a push-down stack based on the type `char`. In this example, the stack is generic, so it can be used with every data type
+
+## Transform ADT to Java interface
+
+```java
+interface Stack<E> {
+  void push(E item);
+  E pop();
+  boolean isEmpty();
+  boolean isFull();
+}
+```
+Now, the ADT is a usable java interface. The interface is also generic to make the data structure usable for every data type while also maintaining type safety.
