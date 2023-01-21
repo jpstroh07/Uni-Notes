@@ -1,8 +1,8 @@
 # Table of Contents
-1. [Introduction of ALDA](#1. ALDA_Introduction)
-2. [Arrays and Linked lists](#2. DataStructures_1)
+1. [Introduction of ALDA](#first)
+2. [Arrays and Linked lists](#second)
 
-# 1. ALDA_Introduction
+# 1. ALDA_Introduction <a name="first">
 
 ## Algorithm definition
 - used in computer science  to describe a problem-solving method suitable for an implementation as a computer program
@@ -25,7 +25,7 @@
 - union and intersection of sets
 - traversal of certain data structures, like trees and graphs
 
-# 2. DataStructures_1
+# 2. DataStructures_1 <a name="second">
 
 ## Abstract Data Type (ADT)
 
