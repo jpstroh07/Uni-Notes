@@ -1,6 +1,7 @@
 # Table of Contents
 1. [Introduction of ALDA](#first)
 2. [Arrays and Linked lists](#second)
+3. [Complexity](#third)
 
 # 1. ALDA_Introduction <a name="first">
 
@@ -354,3 +355,7 @@ public class Josephus {
   - `remove`
   - `insert after`
   - `insert before`
+
+# 3. Complexity of Algorithms <a name="third">
+
+d
