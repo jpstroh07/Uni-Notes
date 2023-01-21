@@ -48,7 +48,7 @@
 - Defines a type (name) and corresponding methods
 - Does not define a certain data structure
 - Fundamental concept of object-oriented programming
-- Like a java interface, but extended with constructor(s)
+- Like a Java interface, but extended with constructor(s)
 - Is an API for one type
 
 ## Java and ADTs
@@ -76,7 +76,7 @@ Question: why is a constructor never part of an interface?
 - Time needed to access an item is independent from the index value
 - Notation: Elements of an array `a` are:
 
-```java
+```Java
 a[0], a[1], a[2], ..., a[n-3], a[n-2], a[n-1]
 ```
 
@@ -84,7 +84,7 @@ a[0], a[1], a[2], ..., a[n-3], a[n-2], a[n-1]
 
 - Algorithm to get prime numbers of a pre-defined number range:
 
-```java
+```Java
 int n = 100;
 boolean[] a = new boolean[n];
 
@@ -119,7 +119,7 @@ for (int i = 0; i < n; i++) {
 
 ### Example of class with Linked List data structure
 
-```java
+```Java
 public class LinkedList<E> {
 
   private static class Node<E> {
@@ -145,7 +145,7 @@ public class LinkedList<E> {
 A Linked List as a **data structure** and a **general purpose** Linked List class are two different things:
 
 - As a **data structure**: a Linked List is just one Node class with a next attribute of type Node. No getters or setter or other methods, only a constructor is needed. It's only purpose of existence it to be used in an algorithm. A private static inner class is enough
-- A **general purpose** Linked List consists of much more code and is complexer. It should function in every possible way, so it is intentionally robust, like the Linked List that is provided in the <ins>java.util.LinkedList</ins> package
+- A **general purpose** Linked List consists of much more code and is complexer. It should function in every possible way, so it is intentionally robust, like the Linked List that is provided in the <ins>Java.util.LinkedList</ins> package
 
 ## Head / Tail / Circular convention
 
@@ -167,14 +167,14 @@ A Linked List as a **data structure** and a **general purpose** Linked List clas
 - Node reference x points to the node, that has it's next node reference pointing to the node that we want to remove
 - To remove the node following node x, we use the statements:
 
-```java
+```Java
 temp = x.next;
 x.next = temp.next;
 ```
 
 - or simply
 
-```java
+```Java
 x.next = x.next.next;
 ```
 
@@ -182,7 +182,7 @@ x.next = x.next.next;
 
 - To insert a node t into a list at a position following node x, we use the statements:
 
-```java
+```Java
 t.next = x.next;
 x.next = t;
 ```
@@ -201,7 +201,7 @@ x.next = t;
 - As a contrast to arrays, a method to traverse the list is needed
 - If **x** refers to the first node of a list, the final node has a null link
 
-```java
+```Java
 Node t = x;
 
 while(t != null) {
@@ -221,26 +221,26 @@ while(t != null) {
 
 - First insert:
 
-```java
+```Java
 head.next = head;
 ```
 
 - Insert t after x (t and x are node references, t is a new node):
 
-```java
+```Java
 t.next = x.next;
 x.next = t;
 ```
 
 - Remove after x:
 
-```java
+```Java
 x.next = x.next.next;
 ```
 
 - Traversal loop:
 
-```java
+```Java
 t = head;
 
 do {
@@ -252,7 +252,7 @@ while (t != head);
 
 - Test if one item:
 
-```java
+```Java
 head.next == head;
 ```
 
@@ -260,13 +260,13 @@ head.next == head;
 
 - Initialize:
 
-```java
+```Java
 head = null;
 ```
 
 - Insert t after x (t and x are node references, t is a new node):
 
-```java
+```Java
 if (x == null) {
   head = t;
   head.next = null;
@@ -278,14 +278,14 @@ if (x == null) {
 
 - Remove after x:
 
-```java
+```Java
 t = x.next;
 x.next = t.next;
 ```
 
 - Traversal loop:
 
-```java
+```Java
 for (t = head; t != null; t = t.next) {
   ...
 }
@@ -293,7 +293,7 @@ for (t = head; t != null; t = t.next) {
 
 - Test if empty:
 
-```java
+```Java
 return head == null;
 ```
 
@@ -301,28 +301,28 @@ return head == null;
 
 - Initialize:
 
-```java
+```Java
 head = new Node();
 head.next = null;
 ```
 
 - Insert t after x (t and x are node references, t is a new node):
 
-```java
+```Java
 t.next = x.next;
 x.next = t;
 ```
 
 - Remove after x:
 
-```java
+```Java
 t = x.next;
 x.next = t.next;
 ```
 
 - Traversal loop:
 
-```java
+```Java
 for (t = head.next; t != null; t = t.next) {
   ...
 }
@@ -330,7 +330,7 @@ for (t = head.next; t != null; t = t.next) {
 
 - Test if empty:
 
-```java
+```Java
 return head.next == null;
 ```
 
@@ -341,7 +341,7 @@ return head.next == null;
 - In a range from 1 - 9, one possible outcome can be `5, 1, 7, 4, 3, 6, 9, 2`
 - In code:
 
-```java
+```Java
 public class Josephus {
   private static class Node {
     int val;
@@ -429,7 +429,7 @@ public class Josephus {
 
 Summation of a finite series: `1 + 2 + 3 + 4 + 5 + ... + n`
 
-```java
+```Java
 public int gaussianSumSimple(int n) {
   int sum = 0;
 
@@ -468,7 +468,7 @@ A bit of secondary school math:
 
 Summation of a finite row of numbers, second implementation
 
-```java
+```Java
 public int gaussianSum(int n) {
   int sum = 0.5 * n * (n + 1);
   return sum;
@@ -543,7 +543,7 @@ A simple mathematical function is used to denote the complexity of algorithms
 
 The growth of the following implementation is *log(N)*:
 
-```java
+```Java
 public int binSearch(int key) {
   int left = 0;
   int right = ar.length;
@@ -576,7 +576,7 @@ The algorithm has a logarithmic running time
 
 ## Example: Method to get distinct triples
 
-```java
+```Java
 // return number of distinct triples (i, j, k)
 // such that a[i] + a[j] + a[k] = 0
 
@@ -659,7 +659,7 @@ If these values are in milliseconds, then N * log(N) for 100.000 entries would t
 
 We will use again the sieve of eratosthenes:
 
-```java
+```Java
 int n = 100;                            // O(1)
 boolean[] a = new boolean[n];           // O(1)
 
@@ -716,7 +716,7 @@ for (int i = 0; i < n; i++) {           // O(N)
 A push-down stack is an ADT that comprises two basic operations: **push** (insert) an item and **pop** (remove & return) the last inserted item </br>
 Definition of a finite generic stack as an ADT interface:
 
-```java
+```Java
 adt Stack {
   Stack(int size)    // constructor, sets size
   void push(item)    // to insert an item
@@ -730,7 +730,7 @@ The stored items are yet unknown type. We could define a stack for a specific ty
 
 ## Transform ADT to Java interface
 
-```java
+```Java
 interface Stack<E> {
   void push(E item);
   E pop();
@@ -739,11 +739,11 @@ interface Stack<E> {
 }
 ```
 
-Now, the ADT is a usable java interface. The interface is also generic to make the data structure usable for every data type while also maintaining type safety.
+Now, the ADT is a usable Java interface. The interface is also generic to make the data structure usable for every data type while also maintaining type safety.
 
 ## Array implementation of a string stack 1
 
-```java
+```Java
 public class StackImpl<String> implements Stack<E> {
 
   private String[] s;  // holds items
@@ -773,7 +773,7 @@ public class StackImpl<String> implements Stack<E> {
 
 This first implementation has memory leaks in the statements `s[n++] = item` and `s[n--]`, which are logically correct, but do not work like intended. To solve this, the methods can be rewritten into the following code:
 
-```java
+```Java
 public void push(String item) {
   s[n] = item;
   n++;
@@ -801,7 +801,7 @@ We can implement the push and pop operations for a push-down stack ADT in a <ins
 
 ## ADT & Java interface for a queue
 
-```java
+```Java
 adt Queue {
   Queue()          // constructor
   boolean empty()  // checks if the queue is empty
@@ -809,7 +809,7 @@ adt Queue {
   item get()       // getting the item at the start of the queue
 }
 
-interface Queue<Item> { // java interface using "item" as data type
+interface Queue<Item> { // Java interface using "item" as data type
   boolean empty();
   void put(Item item);
   Item get();
@@ -820,7 +820,7 @@ interface Queue<Item> { // java interface using "item" as data type
 
 - array implementation:
 
-```java
+```Java
 public class ArrayQueue<Item> implements Queue<Item> {
   private Item[] q;
   private int n = 0;      // size of queue
@@ -880,7 +880,7 @@ public class ArrayQueue<Item> implements Queue<Item> {
 
 - Linked List implementation:
 
-```java
+```Java
 public class LLQueue<Item> implements Queue<Item> {
   
   private static class Node {
@@ -933,7 +933,7 @@ We can implement `get` and `put` operations for the FIFO queue ADT in *constant 
 
 - ADT of bag:
 
-```java
+```Java
 adt Bag {
   Bag()
   void add(item)
@@ -978,7 +978,7 @@ A **complete** tree has these properties:
 
 ## Filling a tree level ordered
 
-```java
+```Java
 private TNode fillTree(E[] arr) {
   Queue<TNode> itemsQ = new Queue<>();
 
@@ -991,5 +991,212 @@ private TNode fillTree(E[] arr) {
   parentQ.put(root);
 
   TNode parent, left, right;
+
+  while (!itemsQ.isEmpty()) {
+    parent = parentQ.get();
+    left = itemsQ.get();
+    parent.left = left;
+    parentQ.put(left);
+
+    if (!itemsQ.isEmpty()) {
+      right = itemsQ.get();
+      parent.right = right;
+      parentQ.put(right);
+    }
+  }
+
+  return root;
+}
+```
+
+## Symbol Tables
+
+**Symbol Table Definition:** </br>
+A *symbol table* is a data structure for key-value pairs that supports two operations: *insert* (put) a new pair into the table, and *search* (get) the value associated with the given key
+
+ADT for Symbol Table:
+
+```Java
+adt ST {
+  ST()
+  void put(key, value)
+  value get(key)
+  void (delete)
+  boolean contains(key)
+  boolean isEmpty()
+  int size()
+  Set keys()
+}
+```
+
+Attributes of Symbol Tables:
+- Generics: In Java present since jdk5
+- Duplicate keys: Common convention is no duplicate keys. As known in associative arrays
+- Null keys: Not allowed
+- Null values: Are allowed, but the corresponding keys are supposed to be absent
+- Deletion: Two strategies can be followed in the implementation 'lazy' or 'eager'
+- Iteration: A `keys()` method could return and Iterator or, like in the ADT specified, a Set
+- Key equality: Overriding the equals method in the class of the key type is necessary to check if a key is present
+
+## Ordered Symbol Tables
+
+- In Java two interfaces can be used to compare the keys: the `Comparable` and the `Comparator` interfaces
+- Trees and Linked Lists are very well suited for Symbol Tables, because in a Node we can store a key and an object that belong together
+
+ADT for an Ordered Symbol Table:
+
+```Java
+adt OST {
+  OST()
+  void put(key, value)
+  value get(key)
+  void delete(key)
+  boolean contains(key)
+  boolean isEmpty()
+  int size()
+  key min()
+  key max()
+  int rank(key)
+  key select(rank)
+}
+```
+
+## List implementation with interfaces
+
+```Java
+public class SortedList<K extends Comparable<K>, V> {
+  
+  private static class Node {
+    K key;
+    V value;
+    Node next;
+
+    Node(K pKey, V pValue, Node pNext) {
+      this.key = pKey;
+      this.value = pValue;
+      this.next = pNext;
+    }
+  }
+
+  private int size;
+  private Node head;
+
+  public SortedList() {
+    head = new Node(null, null, null);
+  }
+
+  public void put(K key, V val) {
+    Node x = head;
+
+    while (x.next != null && x.next.key.compareTo(key) < 0) {
+      x = x.next;
+    }
+
+    if (x.next != null && x.next.key.equals(key)) {
+      x.next.val = val;
+    } else {
+      x.next = new Node(key, val, x.next);
+      size++;
+    }
+  }
+
+  public V get(K key) {
+    for (Node t = head.next; t != null; t = t.next) {
+      if (t.key.equals(key)) {
+        return t.val;
+      }
+
+      return null;
+    } 
+  }
+
+  public int size() {
+    return this.size;
+  }
+}
+```
+
+## Binary Search Tree
+
+Definition: 
+
+- A Binary Search Tree (BST) is **ordered**
+- A Binary Search Tree is a binary tree where each node has a comparable key (and an associated value) and satisfies the restriction that the **key in any node** is **larger** then the keys in all nodes in that node's **left subtree** and **smaller** than the keys in that node's **right subtree**.
+
+Example:
+
+![BST](pictures/bst_example.png)
+
+The order is according to the alphabet. Here you only see the keys, each node contains als a value object
+
+## Example BST implementation
+
+```Java
+public class BinarySearchTree<K extends Comparable<K>, V> {
+
+  private class Node {
+    K key;
+    V value;
+    Node left, right;
+
+    Node(K pKey, V pValue) {
+      this.key = pKey;
+      this.value = pValue;
+    }
+  }
+
+  private int n = 0;
+  private Node root;
+
+  public void put(K key, V val) {
+    root = put(root, key, val);     // use of private recursive put method
+  }
+
+  public V get(K key) {
+    return get(root, key)           // use of private recursive get method
+  }
+
+  public int size() {
+    return size;
+  }
+
+  public boolean isEmpty() {
+    return n == 0;
+  }
+
+  private Node put(Node x, K key, V val) {
+    if (x == null) {
+      n++;
+      return new Node(key, val);
+    }
+
+    int cmp = key.compareTo(x.key);
+
+    if (cmp < 0) {
+      x.left = put(x.left, key, value);
+    } else if (cmp > 0) {
+      x.right = put(x.right, key, value);
+    } else {
+      x.value = val;
+    }
+
+    return x;
+  }
+
+  private V get(Node x, K key) {
+    if (x == null) {
+      return null;
+    }
+
+    int cmp = key.compareTo(x.key);
+
+    if(cmp < 0) {
+      return get(x.left, key);
+    } else if (cmp > 0) {
+      return get(x.right, key);
+    } else {
+      return x.value;
+    }
+  }
 }
 ```
