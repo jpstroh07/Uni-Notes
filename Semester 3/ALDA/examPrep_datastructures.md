@@ -1,9 +1,10 @@
 # Table of Contents
 1. [Introduction of ALDA](#first)
-2. [Arrays and Linked lists](#second)
+2. [Data Structures: Arrays & Linked lists](#second)
 3. [Complexity](#third)
+4. [Data Structures: Stacks, Queues & Bags](#fourth)
 
-# 1. ALDA_Introduction <a name="first">
+# 1. ALDA_Introduction <a name="first"> </a>
 
 ## Algorithm definition
 - used in computer science  to describe a problem-solving method suitable for an implementation as a computer program
@@ -26,7 +27,7 @@
 - union and intersection of sets
 - traversal of certain data structures, like trees and graphs
 
-# 2. DataStructures_1 <a name="second">
+# 2. DataStructures_1 <a name="second"> </a>
 
 ## Abstract Data Type (ADT)
 
@@ -356,7 +357,7 @@ public class Josephus {
   - `insert after`
   - `insert before`
 
-# 3. Complexity of Algorithms <a name="third">
+# 3. Complexity of Algorithms <a name="third"> </a>
 
 ## Analysis of algorithms: the goals
 - perform efficiency analysis
@@ -622,3 +623,6 @@ for (int i = 0; i < n; i++) {           // O(N)
   }
 }
 ```
+
+# 4. DataStructures_2 <a name="fourth"> </a>
+s
