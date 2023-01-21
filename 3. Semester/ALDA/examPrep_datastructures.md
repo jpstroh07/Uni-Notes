@@ -31,6 +31,16 @@
 - Union and intersection of sets
 - Traversal of certain data structures, like trees and graphs
 
+## "Best Friends" of programming:
+- Pen and paper
+- Pseudo code
+- Unit tests
+- Debugger
+- Colleagues
+- IDE
+- Google
+- Documentation
+
 # 2. DataStructures_1 <a name="second"> </a>
 
 ## Abstract Data Type (ADT)
