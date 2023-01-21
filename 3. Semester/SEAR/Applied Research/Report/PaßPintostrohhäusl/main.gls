@@ -1,0 +1,51 @@
+\glossarysection[\glossarytoctitle]{\glossarytitle}\glossarypreamble
+\begin{theglossary}\glossaryheader
+\glsgroupheading{C}\relax \glsresetentrylist %
+\glossentry{CAS}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{3}}}%
+\glossentry{CPU}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}%
+\glossentry{CRC}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{3}}}\glsgroupskip
+\glsgroupheading{D}\relax \glsresetentrylist %
+\glossentry{DDR}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}%
+\glossentry{DRAM}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{3}}}\glsgroupskip
+\glsgroupheading{E}\relax \glsresetentrylist %
+\glossentry{ECC}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{3}}}\glsgroupskip
+\glsgroupheading{F}\relax \glsresetentrylist %
+\glossentry{FPS}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{3}}}\glsgroupskip
+\glsgroupheading{G}\relax \glsresetentrylist %
+\glossentry{GB}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}%
+\glossentry{GPU}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{5}}}\glsgroupskip
+\glsgroupheading{M}\relax \glsresetentrylist %
+\glossentry{MB/s}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{9}}}%
+\glossentry{MHz}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{7}}}%
+\glossentry{MT/s}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}\glsgroupskip
+\glsgroupheading{N}\relax \glsresetentrylist %
+\glossentry{ns}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{14}}}\glsgroupskip
+\glsgroupheading{P}\relax \glsresetentrylist %
+\glossentry{PMIC}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{6}}}\glsgroupskip
+\glsgroupheading{R}\relax \glsresetentrylist %
+\glossentry{RAM}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}\glsgroupskip
+\glsgroupheading{S}\relax \glsresetentrylist %
+\glossentry{SDRAM}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}\glsgroupskip
+\glsgroupheading{T}\relax \glsresetentrylist %
+\glossentry{TB}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{14}}}\glsgroupskip
+\glsgroupheading{V}\relax \glsresetentrylist %
+\glossentry{V}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{14}}}%
+\end{theglossary}\glossarypostamble

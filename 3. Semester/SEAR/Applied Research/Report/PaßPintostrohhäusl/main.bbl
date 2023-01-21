@@ -1,0 +1,1050 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global}
+  \entry{bank_groups}{online}{}
+    \name{author}{1}{}{%
+      {{hash=AG}{%
+         family={Allan},
+         familyi={A\bibinitperiod},
+         given={Graham},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AG1}
+    \strng{fullhash}{AG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{DDR4 Bank Groups in Embedded Applications}
+    \verb{url}
+    \verb https://www.synopsys.com/designware-ip/technical-bulletin/ddr4-bank-g
+    \verb roups.html
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{15}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{benchmark_differences}{online}{}
+    \name{author}{1}{}{%
+      {{hash=AP}{%
+         family={Allan},
+         familyi={A\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AP1}
+    \strng{fullhash}{AP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{The Differences Between Synthetic, Real World, and Hybrid
+  Benchmarks}
+    \verb{url}
+    \verb https://lifehacker.com/the-differences-between-synthetic-real-world-a
+    \verb nd-hybr-1663435313
+    \endverb
+    \field{year}{2014}
+    \field{urlday}{15}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{Ryzen_5000_RAM_specs}{online}{}
+    \name{author}{1}{}{%
+      {{hash=A}{%
+         family={AMD},
+         familyi={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{A1}
+    \strng{fullhash}{A1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{The Future of Computing is Fast(er Than Ever): AMD Ryzen 5000
+  Processors}
+    \verb{url}
+    \verb https://www.amd.com/en/partner/ryzen-5000-series-desktop
+    \endverb
+    \field{year}{2020}
+    \field{urlday}{09}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{Ryzen_7000_RAM_specs}{online}{}
+    \name{author}{1}{}{%
+      {{hash=A}{%
+         family={AMD},
+         familyi={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{A1}
+    \strng{fullhash}{A1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{title}{AMD Ryzen 7000 Series Desktop Processors}
+    \verb{url}
+    \verb https://www.amd.com/en/processors/ryzen
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{09}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{DDR4_DDR5_research}{article}{}
+    \name{author}{1}{}{%
+      {{hash=AIJHYA}{%
+         family={Ashraful\bibnamedelima Islam},
+         familyi={A\bibinitperiod\bibinitdelim I\bibinitperiod},
+         suffix={Yeasin\bibnamedelima Arafath},
+         suffixi={Y\bibinitperiod\bibinitdelim A\bibinitperiod},
+         given={Jahid\bibnamedelima Hasan},
+         giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AIYAJH1}
+    \strng{fullhash}{AIYAJH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{pages}{148\bibrangedash 151}
+    \field{title}{Design of DDR4 SDRAM Controller}
+    \field{journaltitle}{8th International Conference on Electrical and
+  Computer Engineering}
+    \field{year}{2014}
+  \endentry
+
+  \entry{what_is_pugetbench}{online}{}
+    \name{author}{1}{}{%
+      {{hash=BM}{%
+         family={Bach},
+         familyi={B\bibinitperiod},
+         given={Matt},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BM1}
+    \strng{fullhash}{BM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{PugetBench for Premiere Pro}
+    \verb{url}
+    \verb https://www.pugetsystems.com/labs/articles/PugetBench-for-Premiere-Pr
+    \verb o-1519/
+    \endverb
+    \field{year}{2019}
+    \field{urlday}{13}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{pugetbench_test}{online}{}
+    \name{author}{1}{}{%
+      {{hash=BM}{%
+         family={Bach},
+         familyi={B\bibinitperiod},
+         given={Matt},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BM1}
+    \strng{fullhash}{BM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Adobe Photoshop: 12th Gen Intel Core vs AMD Ryzen 5000
+  Series}
+    \verb{url}
+    \verb https://www.pugetsystems.com/labs/articles/Adobe-Photoshop-12th-Gen-I
+    \verb ntel-Core-vs-AMD-Ryzen-5000-Series-2245/
+    \endverb
+    \field{year}{2021}
+    \field{urlday}{13}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{RAM_generations_2}{online}{}
+    \name{author}{1}{}{%
+      {{hash=BS}{%
+         family={Bauduin},
+         familyi={B\bibinitperiod},
+         given={Sven},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BS1}
+    \strng{fullhash}{BS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{DDR bis DDR5: Fünf Generationen RAM im direkten Vergleich}
+    \verb{url}
+    \verb https://www.computerbase.de/2021-07/ddr5-ddr4-ddr3-ddr2-ddr-speicher-
+    \verb latenzen/
+    \endverb
+    \field{year}{2021}
+    \field{urlday}{23}
+    \field{urlmonth}{11}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{RAM_latency_data}{online}{}
+    \name{author}{1}{}{%
+      {{hash=BS}{%
+         family={Bauduin},
+         familyi={B\bibinitperiod},
+         given={Sven},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BS1}
+    \strng{fullhash}{BS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{DDR5-Arbeitsspeicher: Bandbreiten, Latenzen und Latenzzeiten
+  im Überblick}
+    \verb{url}
+    \verb https://www.computerbase.de/2022-06/ddr5-arbeitsspeicher-bandbreiten-
+    \verb latenzen/
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{10}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{most_popular_screenresolution}{online}{}
+    \name{author}{1}{}{%
+      {{hash=BS}{%
+         family={Bose},
+         familyi={B\bibinitperiod},
+         given={Shreya},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BS2}
+    \strng{fullhash}{BS2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{What is the ideal screen size for responsive design?}
+    \verb{url}
+    \verb https://www.browserstack.com/guide/ideal-screen-sizes-for-responsive-
+    \verb design
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{12}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{marketshare}{online}{}
+    \name{author}{1}{}{%
+      {{hash=BP}{%
+         family={Brown},
+         familyi={B\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BP1}
+    \strng{fullhash}{BP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{94\% of DRAM market controlled by three companies}
+    \verb{url}
+    \verb https://electronics360.globalspec.com/article/18157/94-of-dram-market
+    \verb -controlled-by-three-companies
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{13}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{youtube_test_3dmark}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={Corsair},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C1}
+    \strng{fullhash}{C1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{DDR4 vs. DDR5! So schnell ist DDR5-Speicher wirklich!
+  feat.@der8auer}
+    \verb{url}
+    \verb https://www.youtube.com/watch?v=bQCcAhyQlxI
+    \endverb
+    \field{journaltitle}{YouTube}
+    \field{year}{2022}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{RAM_Definition}{online}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={Crucial},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C2}
+    \strng{fullhash}{C2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{What is Computer Memory (RAM) and What Does It Do?}
+    \verb{url}
+    \verb https://www.crucial.com/articles/about-memory/support-what-does-compu
+    \verb ter-memory-do
+    \endverb
+    \field{year}{2017}
+    \field{urlday}{25}
+    \field{urlmonth}{11}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{RAM_Latency}{online}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={Crucial},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C2}
+    \strng{fullhash}{C2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{The Difference Between RAM Speed and CAS Latency}
+    \verb{url}
+    \verb https://www.crucial.com/articles/about-memory/difference-between-spee
+    \verb d-and-latency
+    \endverb
+    \field{year}{2018}
+    \field{urlday}{27}
+    \field{urlmonth}{11}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{RAM_generations}{online}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={Crucial},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C2}
+    \strng{fullhash}{C2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{What’s the difference between SDRAM, DDR, DDR2, DDR3, DDR4
+  and DDR5?}
+    \verb{url}
+    \verb https://www.crucial.com/articles/about-memory/difference-among-ddr2-d
+    \verb dr3-ddr4-and-ddr5-memory
+    \endverb
+    \field{year}{2020}
+    \field{urlday}{23}
+    \field{urlmonth}{11}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{Crucial_ddr4}{online}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={Crucial},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C2}
+    \strng{fullhash}{C2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Crucial 32GB Kit (2 x 16GB) DDR4-3200 UDIMM}
+    \verb{url}
+    \verb https://www.crucial.de/memory/ddr4/ct2k16g4dfra32a
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{13}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{Crucial_ddr5}{online}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={Crucial},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C2}
+    \strng{fullhash}{C2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Crucial 32GB Kit (2 x 16GB) DDR5-4800 UDIMM}
+    \verb{url}
+    \verb https://www.crucial.de/memory/ddr5/ct2k16g48c40u5
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{13}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{DDR2_vs_DDR3}{online}{}
+    \name{author}{1}{}{%
+      {{hash=D}{%
+         family={Diffen},
+         familyi={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{D1}
+    \strng{fullhash}{D1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{DDR2 vs. DDR3}
+    \verb{url}
+    \verb https://www.diffen.com/difference/DDR2_vs_DDR3
+    \endverb
+    \field{year}{2008}
+    \field{urlday}{14}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{youtube_test_i5}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=GT}{%
+         family={Games},
+         familyi={G\bibinitperiod},
+         given={Testing},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GT1}
+    \strng{fullhash}{GT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{i5 12600K : DDR4 vs DDR5}
+    \verb{url}
+    \verb https://www.youtube.com/watch?v=sr1SF2dPhQ0
+    \endverb
+    \field{journaltitle}{YouTube}
+    \field{year}{2021}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{DDR2_bus}{online}{}
+    \name{author}{1}{}{%
+      {{hash=GTI}{%
+         family={GDA\bibnamedelima Technologies},
+         familyi={G\bibinitperiod\bibinitdelim T\bibinitperiod},
+         given={Inc.},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GTI1}
+    \strng{fullhash}{GTI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{DDR2 Signal Integrity}
+    \verb{url}
+    \verb https://www.design-reuse.com/articles/16705/ddr2-signal-integrity.htm
+    \verb l
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{14}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{Geizhals_ddr4}{online}{}
+    \name{author}{1}{}{%
+      {{hash=G}{%
+         family={Geizhals},
+         familyi={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{G1}
+    \strng{fullhash}{G1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Crucial DIMM Kit 32GB, DDR4-3200, CL22-22-22}
+    \verb{url}
+    \verb https://geizhals.de/crucial-dimm-kit-32gb-ct2k16g4dfra32a-a2326631.ht
+    \verb ml
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{13}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{Geizhals_ddr5}{online}{}
+    \name{author}{1}{}{%
+      {{hash=G}{%
+         family={Geizhals},
+         familyi={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{G1}
+    \strng{fullhash}{G1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Crucial DIMM Kit 32GB, DDR5-4800, CL40-39-39, on-die ECC}
+    \verb{url}
+    \verb https://geizhals.de/crucial-ddr5-dimm-kit-32gb-ct2k16g48c40u5-a262750
+    \verb 5.html
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{13}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{used_kits}{online}{}
+    \name{author}{1}{}{%
+      {{hash=G}{%
+         family={Geizhals},
+         familyi={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{G1}
+    \strng{fullhash}{G1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{3}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{note}{All URLs:
+  \url{https://geizhals.de/?cat=ramddr3&xf=1454_16384\%7E15903_DDR5\%7E15903_keinSO\%7E253_32768\%7E254_6000\%7E256_2x};
+  \url{https://geizhals.de/?cat=ramddr3&xf=1454_16384\%7E15903_DDR4\%7E253_32768\%7E254_3733\%7E256_2x};
+  \url{https://geizhals.de/?cat=ramddr3&xf=1454_16384\%7E15903_DDR4\%7E253_32768\%7E254_3200\%7E256_2x};
+  \url{https://geizhals.de/?cat=ramddr3&xf=1454_16384\%7E15903_DDR4\%7E15903_keinSO\%7E253_32768\%7E254_4000\%7E256_2x};
+  \url{https://geizhals.de/?cat=ramddr3&xf=1454_16384\%7E15903_DDR5\%7E15903_keinSO\%7E253_32768\%7E254_4000\%7E256_2x};
+  \url{https://geizhals.de/?cat=ramddr3&xf=1454_16384\%7E15903_DDR5\%7E253_32768\%7E254_5200\%7E255_38\%7E256_2x};
+  \url{https://geizhals.de/?cat=ramddr3\&xf=1454_16384\%7E15903_DDR5\%7E15903_keinSO\%7E253_32768\%7E254_6400\%7E256_2x}}
+    \field{title}{Prices of used DDR4 and DDR5 kits in benchmarks}
+    \field{year}{2022}
+    \field{urlday}{13}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{test_7zip}{online}{}
+    \name{author}{1}{}{%
+      {{hash=HH}{%
+         family={Hagedoorn},
+         familyi={H\bibinitperiod},
+         given={Hilbert},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HH1}
+    \strng{fullhash}{HH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Core i9 12900K DDR4 3600 vs DDR5 5200 performance review}
+    \verb{url}
+    \verb https://www.guru3d.com/articles_pages/core_i9_12900k_ddr4_versus_ddr5
+    \verb _performance_review,10.html
+    \endverb
+    \field{year}{2021}
+    \field{urlday}{13}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{Intel_13_presentation}{online}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={Intel},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{title}{13th Gen Intel Core Desktop Media Presentation}
+    \verb{url}
+    \verb https://download.intel.com/newsroom/2022/2022innovation/13th-Gen-Inte
+    \verb l-Core-Desktop-Media-presentation.pdf
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{09}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{Intel_12_RAM_specs}{online}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={Intel},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{title}{Compatibility of 12th Generation Intel® Desktop Processors}
+    \verb{url}
+    \verb https://www.intel.com/content/www/us/en/support/articles/000088143/pr
+    \verb ocessors/intel-core-processors.html
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{09}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{bluescreens}{online}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={IONOS},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I2}
+    \strng{fullhash}{I2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{title}{Windows Bluescreen (BSOD): So beheben Sie den blauen
+  Bildschirm}
+    \verb{url}
+    \verb https://www.ionos.de/digitalguide/server/knowhow/bluescreen-in-window
+    \verb s-beheben/
+    \endverb
+    \field{year}{2021}
+    \field{urlday}{14}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{DDR4_DDR5_CAS}{online}{}
+    \name{author}{1}{}{%
+      {{hash=JJ}{%
+         family={James},
+         familyi={J\bibinitperiod},
+         given={Jerry},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JJ1}
+    \strng{fullhash}{JJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{title}{Guide to RAM (Memory) Latency – How important is it?}
+    \verb{url}
+    \verb https://www.cgdirector.com/ram-memory-latency/
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{10}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{best_games}{online}{}
+    \name{author}{1}{}{%
+      {{hash=JW}{%
+         family={Judd},
+         familyi={J\bibinitperiod},
+         given={William},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JW1}
+    \strng{fullhash}{JW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{title}{GAMES WITH BUILT-IN BENCHMARKS 2022: HOW TO BENCHMARK YOUR
+  PC}
+    \verb{url}
+    \verb https://xsreviews.co.uk/news/games-with-built-in-benchmarks-how-to-be
+    \verb nchmark-your-pc/
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{12}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{ddr5_overview_kingston}{online}{}
+    \name{author}{1}{}{%
+      {{hash=K}{%
+         family={Kingston},
+         familyi={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{K1}
+    \strng{fullhash}{K1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{DDR5 memory standard: An introduction to the next generation
+  of DRAM module technology}
+    \verb{url}
+    \verb https://www.kingston.com/en/blog/pc-performance/ddr5-overview
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{10}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{RAM_Speed}{online}{}
+    \name{author}{1}{}{%
+      {{hash=K}{%
+         family={Kingston},
+         familyi={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{K1}
+    \strng{fullhash}{K1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{MT/s vs MHz: A better measure for memory speed}
+    \verb{url}
+    \verb https://www.kingston.com/en/blog/pc-performance/mts-vs-mhz
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{27}
+    \field{urlmonth}{11}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{7zip_def}{online}{}
+    \name{author}{1}{}{%
+      {{hash=LF}{%
+         family={Lab},
+         familyi={L\bibinitperiod},
+         given={Fiehn},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LF1}
+    \strng{fullhash}{LF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{7ZIP compression benchmark for large files (Virtual
+  Machines)}
+    \verb{url}
+    \verb https://fiehnlab.ucdavis.edu/staff/kind/collector/benchmark/7zip-benc
+    \verb hmark
+    \endverb
+    \field{year}{2016}
+    \field{urlday}{15}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{DDR4_DDR5_micron}{online}{}
+    \name{author}{1}{}{%
+      {{hash=M}{%
+         family={Micron},
+         familyi={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{M1}
+    \strng{fullhash}{M1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{DDR5 SDRAM}
+    \verb{url}
+    \verb https://www.micron.com/products/dram/ddr5-sdram
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{10}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{12900k_gaming_and_work_benchmarks}{online}{}
+    \name{author}{1}{}{%
+      {{hash=SS}{%
+         family={Schenzinger},
+         familyi={S\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SS1}
+    \strng{fullhash}{SS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{DDR4 vs DDR5 RAM im Test mit Intel Core i9-12900K}
+    \verb{url}
+    \verb https://www.pcwelt.de/article/1199827/ddr4-vs-ddr5-ram-im-test-mit-in
+    \verb tel-core-i9-12900k.html
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{11}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{samsung_1tb}{online}{}
+    \name{author}{1}{}{%
+      {{hash=SA}{%
+         family={Shilov},
+         familyi={S\bibinitperiod},
+         given={Anton},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SA1}
+    \strng{fullhash}{SA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Samsung: 1TB DDR5 RAM in 2024, DDR5-7200 in 2025}
+    \verb{url}
+    \verb https://www.tomshardware.com/news/samsung-talks-1tb-ddr5-modules-ddr5
+    \verb -7200
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{14}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{3dmark_def}{online}{}
+    \name{author}{1}{}{%
+      {{hash=SU}{%
+         family={Solutions},
+         familyi={S\bibinitperiod},
+         given={UL},
+         giveni={U\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SU1}
+    \strng{fullhash}{SU1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Benchmarks and Performance Tests}
+    \verb{url}
+    \verb https://benchmarks.ul.com/
+    \endverb
+    \field{year}{2022}
+    \field{urlday}{15}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{crc_def}{online}{}
+    \name{author}{1}{}{%
+      {{hash=T}{%
+         family={Techopedia},
+         familyi={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{T1}
+    \strng{fullhash}{T1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{Cyclic Redundancy Check (CRC)}
+    \verb{url}
+    \verb https://www.techopedia.com/definition/1793/cyclic-redundancy-check-cr
+    \verb c
+    \endverb
+    \field{year}{2020}
+    \field{urlday}{15}
+    \field{urlmonth}{12}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{youtube_test_i7+i5}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=t}{%
+         family={thegamrone},
+         familyi={t\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{t1}
+    \strng{fullhash}{t1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{DDR4 vs DDR5 || i5 12600K, i7 12700K, i9 12900K || PC GAMES
+  TEST ||}
+    \verb{url}
+    \verb https://www.youtube.com/watch?v=CiCQ3CTNyag
+    \endverb
+    \field{journaltitle}{YouTube}
+    \field{year}{2021}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+\enddatalist
+\endinput
