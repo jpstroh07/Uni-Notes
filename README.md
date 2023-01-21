@@ -1,2 +1,2 @@
 # Notes
-Notes taken for exam prep
+Notes taken during uni, mostly for exam prep. Contains also other work
