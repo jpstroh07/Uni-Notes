@@ -367,146 +367,222 @@ Notation: IP-Address / Length prefix
 - E.g., 145.93.113.70/26
 
 # Lecture9-Support_Protocols
-•	 Address Resolution Protocol (ARP): is for determine for every IP-address a MAC address
-o	Stored in table
-•	Address binding
-o	Within network: hardware address (MAC address)
-o	Over networks: protocol address (IP-address)
-•	Three techniques:
-o	Use a table
-o	Closed form calculation 
-o	Exchange massages
-•	Table: efficient
-•	Calculation
-o	Closed form calculations for configurable networks, e.g., IP = 220.123.5.x  H = x
-•	Message exchange, used within LAN
-•	DHCP
-•	Routing with IP
-•	IP does not offer correction of errors in the used networks and routers (Duplication of datagrams, exceptional delays, wrong order of datagrams, wrong data of datagrams, loss of datagrams)
-•	Network Address Translation (NAT)
-•	Why do we need NAT?
-o	Shortage of public IP addresses
-o	Security: No IP addresses visible to the outside world (combination with firewall)
-o	Flexibility: IP addresses assignment not reliant on ISP (Internet Service Provider)
-•	How a NAT works
-Lecture10-IPv6
-•	Why do we need IPv6?
-o	Address space has run out
-o	No security
-•	Address space
-o	IPv4
-	32 bits addresses
-	4,3 Billion addresses
-o	IPv6
-	128 bits addresses
-	3,4x10^(38) addresses
-	5,6 octillion (5,6x10^(28) addresses per person worldwide
-•	Benefits of Ipv6
-o	Scalable: better hierarchical design
-o	No broadcast: neighbour discovery
-o	Build in security
-o	Auto configuration: no ARP, DHCP
-o	Enhanced routing: real time flow, e.g., video communication
-•	 IPv6 format compared to IPv4 format
-•	Notation of IPv6: 
-o	8 fields of 4 characters (hexadecimal)
-o	Case insensitive
-o	Leading zeros are optional 
-o	Fields of zeros can be ::
-o	Example: 2001:72D3:2C80:DD02:0029:EC7A:002B:EA73
-o	2001:72D3:0000:0000:0029:EC7A:002B:EA73  2001:72D3::29:EC7A:2B:EA73
-•	IPv6 address range
-•	Address types
-o	Unicast
-	For single interface
-	Highest order bits 001
-o	Multicast 
-	One to many (group)
-	Subscription
-o	Anycast
-	One to nearest (one)
-•	Neighbour Discovery Protocol (NDP)
-o	Used to discover other hosts and routers on a local network
-o	Incorporates older link-layer protocols (ARP)
-o	Makes use of multicast addresses
-o	Uses ICMP: Internet Control Message Protocol (e.g., ping, max hops reached
-•	IPv6 to IPv4
-o	IPv6 packet encapsulated in data of IPv4 packet
-o	IPv4 destination address derived from IPv6 address 
-o	Router does encapsulation
-•	IPv6 and IPv4 can work at the same time, because routers can translate IPv4 to IPv6 and IPv6 to IPv4
-Lecture11-UDP-TCP
-•	Purpose transport layer
-o	Multiple applications use the same network connection
-o	Source and destination port
-	65.000 available (per network connection)
-o	Segments used
-•	Well known port numbers
-o	21: FTP
-o	22: SSH
-o	25: SMTP
-o	80: HTTP
-o	443: HTTPS
-o	Free: above 1024
-•	User Datagram Protocol (UDP)
-o	Lightweight
-o	Connectionless
-o	No control when data is sent out (fire and forget)
-o	Primitive error detection
-o	Lost packets
-o	No “in order” delivery
-o	UDP header: 8 bytes
-o	No setup of connection 
-o	Discard corrupted segments
-•	UDP segment 
-•	Transmission Control Protocol (TCP)
-o	Connection orientation (Socket TCP-IP combination)
-o	Point to point connection
-o	Complete reliability
-o	Full duplex communication
-o	Stream interface
-o	Reliable connection start-up
-o	Graceful connection shutdown
-•	How?
-o	Sequence number (duplication, missing, out-of-order)
-o	Positive acknowledgement (retransmission for lost packets)
-o	Flow control
-•	Flow control
-o	Retransmit after time finishes without receiving the ACK (acknowledgement)
-•	TCP uses sliding window
-•	Setup connection of TCP (“Three-way handshake”)
-•	Setup/terminate connection
-•	TCP segment format
-•	What to use for?
-Text based communication	TCP
-File transfers	TCP
-When acknowledgements are needed	TCP (UDP++ to be implemented manually)
-Multimedia streaming	UDP (or TCP when bandwidth available or when UDP blocked)
-Small transactions (e.g., DNS lookups)	UDP
-Lecture12-HTTP(S)
-•	Public – Private key encryption
-o	Asymmetric
-o	Encrypt data
-o	Authenticate clients
-o	Used in: SSL/TLS
-•	Hypertext Transfer Protocol (HTTP)
-o	Not encrypted
-o	Application Layer
-o	TCP/IP based
-o	Request/Response
-o	Stateless
-o	Request
-	Start-line: get
-	Headers accept text/html
-	Body: empty
-o	Response:
-	Start-line: http/version
-	Headers: accept text/html
-	Index.html
-•	HTTPS
-o	encrypted
-o	HTTP over TLS
-o	HTTP over SSL
-o	SSL certificate needed
-•	Symmetrical Encryption: both sides have key
-•	Asymmetrical Encryption: one side has both keys, sends to other side and other side needs to calculate key
+
+Address Resolution Protocol (ARP): is for determine for every IP-address a MAC address
+- Stored in table
+
+Address binding
+-	Within network: hardware address (MAC address)
+-	Over networks: protocol address (IP-address)
+
+Three techniques:
+-	Use a table
+-	Closed form calculation 
+-	Exchange massages
+
+Table: efficient
+	
+![table](pictures/table_efficient.png)
+
+Calculation
+-	Closed form calculations for configurable networks, e.g., IP = 220.123.5.x  H = x
+
+Message exchange, used within LAN
+
+![message](pictures/message_exchange.png)
+
+DHCP
+
+![DHCP](pictures/dhcp.png)
+
+Routing with IP
+
+IP does not offer correction of errors in the used networks and routers (Duplication of datagrams, exceptional delays, wrong order of datagrams, wrong data of datagrams, loss of datagrams)
+
+Network Address Translation (NAT)
+
+![NAT](pictures/nat.png)
+
+Why do we need NAT?
+-	Shortage of public IP addresses
+-	Security: No IP addresses visible to the outside world (combination with firewall)
+-	Flexibility: IP addresses assignment not reliant on ISP (Internet Service Provider)
+
+![why nat](pictures/nat_why.png)
+
+How a NAT works
+
+![how nat](pictures/how_nat.png)
+
+# Lecture10-IPv6
+Why do we need IPv6?
+-	Address space has run out
+-	No security
+
+Address space
+-	IPv4
+  - 32 bits addresses
+  - 4,3 Billion addresses
+- IPv6
+  - 128 bits addresses
+  - 3,4x10^(38) addresses
+  - 5,6 octillion (5,6x10^(28) addresses per person worldwide
+
+Benefits of Ipv6
+-	Scalable: better hierarchical design
+-	No broadcast: neighbour discovery
+-	Build in security
+-	Auto configuration: no ARP, DHCP
+-	Enhanced routing: real time flow, e.g., video communication
+
+![ipv6](pictures/ipv6.png)
+
+IPv6 format compared to IPv4 format
+
+![ip4 vs ip6](pictures/ip4_vs_ip6.png)
+
+Notation of IPv6: 
+-	8 fields of 4 characters (hexadecimal)
+-	Case insensitive
+-	Leading zeros are optional 
+-	Fields of zeros can be ::
+-	Example: 2001:72D3:2C80:DD02:0029:EC7A:002B:EA73
+-	2001:72D3:0000:0000:0029:EC7A:002B:EA73 -> 2001:72D3::29:EC7A:2B:EA73
+
+IPv6 address range
+
+![addresses](pictures/ip6_addresses.png)
+
+Address types
+- Unicast
+  - For single interface
+  - Highest order bits 001
+- Multicast 
+  - One to many (group)
+  - Subscription
+- Anycast
+  - One to nearest (one)
+
+Neighbour Discovery Protocol (NDP)
+-	Used to discover other hosts and routers on a local network
+-	Incorporates older link-layer protocols (ARP)
+-	Makes use of multicast addresses
+-	Uses ICMP: Internet Control Message Protocol (e.g., ping, max hops reached
+
+IPv6 to IPv4
+-	IPv6 packet encapsulated in data of IPv4 packet
+-	IPv4 destination address derived from IPv6 address 
+-	Router does encapsulation
+
+IPv6 and IPv4 can work at the same time, because routers can translate IPv4 to IPv6 and IPv6 to IPv4
+
+![ip4 to ip6](pictures/ip4_to_ip6.png)
+
+# Lecture11-UDP-TCP
+
+Purpose transport layer
+- Multiple applications use the same network connection
+- Source and destination port
+  - 65.000 available (per network connection)
+- Segments used
+
+Well known port numbers
+- 21: FTP
+- 22: SSH
+- 25: SMTP
+- 80: HTTP
+- 443: HTTPS
+- Free: above 1024
+
+User Datagram Protocol (UDP)
+-	Lightweight
+-	Connectionless
+-	No control when data is sent out (fire and forget)
+-	Primitive error detection
+-	Lost packets
+-	No “in order” delivery
+-	UDP header: 8 bytes
+-	No setup of connection 
+-	Discard corrupted segments
+
+UDP segment
+
+![udp](pictures/udp_segment.png)
+
+Transmission Control Protocol (TCP)
+-	Connection orientation (Socket TCP-IP combination)
+-	Point to point connection
+-	Complete reliability
+-	Full duplex communication
+-	Stream interface
+-	Reliable connection start-up
+-	Graceful connection shutdown
+
+How?
+- Sequence number (duplication, missing, out-of-order)
+-	Positive acknowledgement (retransmission for lost packets)
+-	Flow control
+
+Flow control
+-	Retransmit after time finishes without receiving the ACK (acknowledgement)
+
+![flow](pictures/flow_control.png)
+
+TCP uses sliding window
+
+![tcp slide](pictures/tcp_slide.png)
+
+Setup connection of TCP (“Three-way handshake”)
+
+![twh](pictures/three_way_handshake.png)
+
+Setup/terminate connection
+
+![s/t](pictures/setup_terminate_connection.png)
+
+TCP segment format
+
+![tcp segment](pictures/tcp_segment.png)
+
+What to use for?
+
+| What Use-Case?                         | What Protocol?                                            |
+| -------------------------------------- | --------------------------------------------------------- |
+| Text based communication               | TCP                                                       |
+| File transfers                         | TCP                                                       |
+| When acknowledgements are needed       | TCP (UDP++ to be implemented manually)                    |
+| Multimedia streaming                   | UDP (or TCP when bandwidth available or when UDP blocked) |
+| Small transactions (e.g., DNS lookups) | UDP                                                       |
+
+# Lecture12-HTTP(S)
+
+Public – Private key encryption
+-	Asymmetric
+-	Encrypt data
+-	Authenticate clients
+-	Used in: SSL/TLS
+
+Hypertext Transfer Protocol (HTTP)
+- Not encrypted
+- Application Layer
+- TCP/IP based
+- Request/Response
+- Stateless
+- Request
+  - Start-line: get
+  - Headers accept text/html
+  - Body: empty
+- Response:
+  - Start-line: http/version
+  - Headers: accept text/html
+  - Index.html
+
+HTTPS
+- encrypted
+- HTTP over TLS
+- HTTP over SSL
+- SSL certificate needed
+
+Symmetrical Encryption: both sides have key
+
+Asymmetrical Encryption: one side has both keys, sends to other side and other side needs to calculate key
