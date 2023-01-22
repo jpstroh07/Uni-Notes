@@ -5,6 +5,7 @@
 4. [Quicksort](#fourth)
 5. [Heaps and Heapsort](#fifth)
 6. [Hashing](#sixth)
+7. [Tries](#seventh)
 
 # 1. Recursion and Tree Traversal <a name="first"> </a>
 
@@ -1070,3 +1071,352 @@ public void sort(Comparable[] a) {
   - Heapsort does not use extra space (unlike Mergesort)
 
 # 6. Hashing <a name="sixth"> </a>
+
+## Why Hashing
+
+- Key-Value pairs are used very often
+- Needed: quick find (O(1)) & fast insert
+- Already used from package <ins>java.util.Map</ins>
+- General term is **Symbol Table**
+
+## Hashing
+
+- Hashing is a technique that is typically applied to implement dictionaries (key-value data structure)
+- In a hash, keys can be related to more than one entry, because the list of keys is always finite
+- If that happens, this is called a **collision**
+- Resolving a collision takes time, preventing collisions can be done by adding memory
+- Hashing is *finding items in a table directly by performing some kind of calculation*
+- There are several techniques
+  - Separate chaining
+  - Linear probing
+- The calculation to be performed is done by a **hash-function**
+- This function calculates an index for a given key
+
+## Basic Idea
+
+- Searching by using hashing consists of two separate parts:
+  - 1. Computing a hash function that transforms the **search key** into the **table address**
+  - 2. A method to resolve a possible collision
+- The hash function maps, keys to a position in a hash table
+
+## Basic way of operation
+
+1. An item i has a key k and h(x) is a hash function
+2. The item i is stored in position h(k) of the table
+3. If the position was free: No collision
+4. If not free: there is a collision. i needs to be stored somewhere else, while also making sure that the item can be found again
+5. To search for i, we compute h(k) to locate its position
+6. If no item exists, the dictionary does not contain i
+7. To make all of this work, an overridden `equals`-method needs to be used
+
+## A time-space tradeoff
+
+- Hashing is a good example of a time-space tradeoff
+- Consider the following extremes:
+  - 1. If there were no memory limitations, then we could do any search with only one memory access by using a key as a memory address. The amount of memory required is prohibitive when the keys are long
+  - 2. If there were no time limits, then we could get by with only a minimum amount of memory by using a sequential search method
+- Hashing provides a way to use a reasonable amount of both memory and time to strike a balance
+- We can strike any balance we choose, merely adjusting hash table size, not rewriting code or choosing other algorithms
+- We support the important operations *search* and *insert*
+- In the average case both operations need constant time
+- Hashing does not provide efficient implementations for operations such as select or sort
+
+## Hash functions
+
+- If the key range is too large, then we have to apply a hash table with fewer buckets and a hash function which maps multiple keys to the same bucket. If h(k1) = ß and h(k2) = ß, k1 and k2 collide at bucket ß
+- Popular hash functions use hashing by division: h(k) = k % M; Where M number of buckets in the hash table
+
+## Example
+
+Hash table with 11 buckets
+
+```Java
+h(k) = k % 11
+
+80 -> 3 (80 % 11 = 3)
+40 -> 7
+65 -> 10
+58 -> 3 -> collision
+```
+
+## String keys
+
+- We considered keys given by numbers so far
+- Java implementations are realized via hash functions for string keys. The key is computed by multiplication and addition per character in the key
+
+Horner's method, with conversion to array index:
+
+```Java
+int hash(String s, int M) {
+    int h = 0;
+    int R = 127;
+
+    for (int i = 0; i < s.length(); i++) {
+        h = (R * h + s.charAt(i)) % M;
+    }
+
+    return h;
+}
+```
+
+## Implementation for user define type
+
+```Java
+public class Transaction {
+
+    private final String who;
+    private final Date when;
+    private final double amount;
+
+    public int hashCode() {
+        int hash = 17;
+
+        hash = 31 + hash + who.hashCode();
+        hash = 31 * hash + when.hashCode();
+        hash = 31 * hash + ((Double) amount).hashCode();
+
+        return hash;
+    }
+}
+```
+
+## Three primary requirements for a good hash
+
+1. It should be consistent: equal keys must produce the same hash value
+2. It should be efficient to compute
+3. It should uniformly distribute the keys
+
+=> A "bad hash function" is a classic example of a performance bug
+
+## Collision Resolution Policies
+
+- The collision resolution impacts the choice of the hashing function
+- We identify two different types of hashing:
+  - 1. Closed hashing (**open addressing**)
+  - 2. Open hashing (**separate chaining**)
+- The differences are
+  - Collision result in storing one of the records at another bucket in the table (**closed hashing**)
+  - Collisions are stored outside the table (**open hashing**)
+
+## Rehash strategy: Linear-probing
+
+- **Goal**: Find an empty bucket
+- Assumption J: The hash functions we use distribute keys uniformly and independently
+- Associated with closed hashing is a rehash strategy: If we try to place x in the bucket h(x) and find it occupied, find an alternative location h1(x), h2(x), ... Try each in order, if none of the buckets is empty, then the table is full
+- h(x) is called the *home* bucket
+- Rehash
+  - Make a plan / strategy for calculating a new hash value
+  - The simplest rehash strategy is called *linear hashing* or *linear probing*: `hi(x) = (h(x) + i) % M`
+  - Our collision resolution strategy is to generate a sequence of hash table buckets (probe sequence) that can hold the record
+  - Test each bucket until we find an empty one (probing)
+
+## Example: Closed hashing
+
+- M = 8, the keys a, b, c have the hash values: h(a) = 3, h(b) = 0, h(c) = 4 and have been inserted
+- Where do we insert d if h(d) = 3? Bucket 3 is already filled
+- The probe sequence using linear hashing is
+
+```Java
+h1(d) = (h(d) + 1) % 8 = 4 % 8 = 4
+h2(d) = (h(d) + 2) % 8 = 5 % 8 = 5
+h3(d) = (h(d) + 3) % 8 = 6 % 8 = 6
+
+etc.
+
+7, 0, 1, 2
+```
+- Wraps around the beginning of the table
+- Result:
+
+| Key | Value |
+|-----|-------|
+| 0   | b     |
+| 1   |       |
+| 2   |       |
+| 3   | a     |
+| 4   | c     |
+| 5   | d     |
+| 6   |       |
+| 7   |       |
+
+## Implementation of Linear Probing Algorithm
+
+```Java
+public class LinearProbingHashST<Key, Value> {
+
+    private int N;           // number of key-value pairs in table
+    private int M = 16;      // size of linear probing table
+    private Key[] keys;      // the keys
+    private Value[] values;  // the values
+
+    public LinearProbingHashST() {
+        keys = (Key[]) new Object[M];
+        values = (Value[]) new Object[M];
+    }
+
+    private int hash(Key key) {
+        return (key.hashCode() & 0x7fffffff) % M;
+    }
+
+    public void put(Key key, Value val) {
+        if (val == null) {
+            delete(key);
+        }
+
+        if (N >= M / 2) {
+            resize(2 * M);
+        }
+
+        for (int i = hash(key); keys[i] != null; i = (i + 1) % M) {
+            if (keys[i].equals(key)) {
+                values[i] = val;
+                return;
+            }
+        }
+
+        keys[i] = key;
+        values[i] = val;
+        N++;
+    }
+
+    public Value get(Key key) {
+        for (int i = hash(key); keys[i] != null; i = (i + 1) % M) {
+            if(keys[i].equals(key)) {
+                return values[i];
+            }
+        }
+
+        return null;
+    }
+}
+```
+
+## Operations and Linear Probing: removing
+
+- Consider search an item: examine h(k), h1(k), h2(k), ..., until we find k or an empty bucket or home bucket
+- If no deletions are possible, the strategy works
+- What happens if deletions must be done?
+- If we reach an empty bucket, we cannot be sure that k is not somewhere else and empty bucket was occupied when k was inserted
+- We need a special placeholder *deleted*, to distinguish bucket that was never used from one that held once a value
+- We may need to reorganize the hash table after many deletions
+
+## Implementation continued
+
+```Java
+public void delete(Key key) {
+    if (!contains(key)) {
+        return;
+    }
+
+    int i = hash(key);
+
+    while (!key.equals(keys[i])) {
+        i = (i + 1) % M;
+    }
+
+    keys[i] = null;
+    values[i] = null;
+    i = (i + 1) % M;
+
+    while (keys[i] != null) {
+        Key keyToRehash = key[i];
+        Value valueToRehash = values[i];
+
+        keys[i] = null;
+        values[i] = null;
+        N--;
+
+        put(keyToRehash, valueToRehash);
+        i = (i + 1) % M;
+    }
+
+    N--;
+    
+    if(N > 0 && N <= M / 8) {
+        resize(M / 2);
+    }
+}
+
+public void resize(int capacity) {
+    LinearProbingHashST<Key, Value> temp = new LinearProbingHashST<Key, Value>(capacity);
+
+    for (int i = 0; i < M; i++) {
+        if (keys[i] != null) {
+            temp.put(keys[i], values[i]);
+        }
+    }
+
+    keys = temp.keys;
+    values = temp.values;
+    M = temp.M;
+}
+```
+
+## Separate Chaining
+
+- The collision resolution: when keys hash to the same index, can also be handled by as follows:
+  - Each bucket in the hash table is the head of a Linked List
+  - All elements that hash to a particular bucket are placed on the bucket's Linked List
+  - Records within a bucket can be ordered in several ways
+
+## Hashing with separate chaining
+
+```Java
+public class SeparateChainingHashST<Key, Value> {
+    
+    private int N, M;
+    private SequentialSearchST<Key, Value>[] storage;
+
+    public SeparateChainingHashST() {
+        this(997);
+    }
+
+    public SeparateChainingHashST(int pM) {
+        this.M = pM;
+        storage = (SequentialSearchST<Key, Value>) new SequentialSearchST[M];
+
+        for (int i = 0; i < M; i++) {
+            storage[i] = new SequentialSearchST<Key, Value>();
+        }
+    }
+
+    private int hash(Key key) {
+        return (key.hashCode() & 0x7ffffff) % M;
+    }
+
+    public Value get(Key key) {
+        int i = hash(key);
+        return storage[i].get(key);
+    }
+
+    public void put(Key key, Value val) {
+        if (val == null) {
+            delete(key);
+            return;
+        }
+
+        if (N >= 10 * M) {
+            resize(2 * M);
+        }
+
+        int i = hash(key);
+
+        if (!storage[i].contains(key)) {
+            N++;
+        }
+
+        storage[i].put(key, val);
+    }
+}
+```
+
+## Example: Structure of separate chaining
+
+```Java
+Key:   S E A R C H E X A M P L E
+Hash:  2 0 0 4 4 4 0 2 0 4 3 3 0
+```
+
+![chaining](pictures/separate_chaining.png)
+
+# 7. Tries <a name="seventh"> </a>
