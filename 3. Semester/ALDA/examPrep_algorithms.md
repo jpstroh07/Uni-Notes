@@ -3,6 +3,7 @@
 2. [Intro into Sorters: Selectionsort, Insertionsort & Bubblesort](#second)
 3. [Mergesort](#third)
 4. [Quicksort](#fourth)
+5. [Heaps and Heapsort](#fifth)
 
 # 1. Recursion and Tree Traversal <a name="first"> </a>
 
@@ -702,3 +703,226 @@ void sort(Comparable[] a) {
 ```
 
 # 4. Quicksort <a name="fourth"> </a>
+
+## Working process of Quicksort
+
+- Quicksort is a *divide-and-conquer* algorithm
+  - Dividing a problem into smaller, easier solvable sub-problems
+- How Quicksort works
+  - Partitioning of any array in two parts
+  - Then sorting the parts independently
+- The method is based on the following process
+  - After the partitioning: `a[lo ... i - 1] <= a[i] <= a[i + 1 ... hi]`
+  - Conclusion: **Element a[i] is in its final place in the array**
+- a[i] is called the *partitioning element*
+  
+## Basic structure of the recursive quicksort routine
+
+```Java
+void sort(Comparable[] a, int lo, int hi) {
+    if (hi <= lo) {
+        return;
+    }
+
+    int j = partition(a, lo, hi);
+
+    sort(a, lo, j - 1);
+    sort(a, j + 1, hi);
+}
+```
+
+## Partitioning for Quicksort
+
+```Java
+int partition(Comparable[] a, int lo, int hi) {
+    int i = lo; 
+    int j = hi + 1;
+    Comparable v = a[lo];
+
+    while (true) {
+        while (less(a[i++], v)) {
+            if (i == hi) {
+                break;
+            }
+        }
+
+        while (less(v, a[j--])) {
+            if (j == lo) {
+                break;
+            }
+        }
+
+        if (i >= j) {
+            break:
+        }
+
+        exch(a, i, j);
+    }
+
+    exch(a, lo, j);
+
+    return j;
+}
+```
+
+## Performance of Quicksort
+
+- Worst case situation
+  - The number of comparisons used for a file that is already in order is: `N + (N - 1) + (N - 2) + ... + 2 + 1 = (N + 1) * N / 2`
+  - All the partitions are also degenerate for files in reverse order
+  - Quicksort uses about N^2 / 2 comparisons in the worst case
+  - The time complexity in the worst case is O(N^2), which is unacceptable for large files
+  - It is relatively easy to reduce the time complexity for the best case
+- Best case situation
+  - The best case for quicksort is when each partitioning stage divides the file exactly in half
+  - Things do not fo always this well, it is true that the partition falls in the middle on the average
+  - Quicksort uses about 2 * N * log(N) comparisons on the average
+  - The time complexity in the average case is O(N * log(N))
+
+## Small sub-files (sub-arrays)
+
+- A definite improvement of the Quicksort arises from the observation that a recursive program is guaranteed to call itself for many sub-files
+- To overcome this problem, we can change the test at the beginning of the recursive method from a `return` on insertion sort as follows
+  
+```Java
+if (hi - lo <= M) {
+    insertion(a, l, r);
+}
+```
+- M is some parameter whose exact value depends upon the implementation
+- We can determine an optimal value for M either through analysis or empirical studies
+
+Alternative solution:
+- It is slightly easier not to handle smaller sub-files, which are also slightly more efficient than insertions sorting them. We obtain for the test at the beginning:
+
+```Java
+if (r - l <= M) {
+    return;
+}
+```
+
+- After a Quicksort, apply Insertionsort on complete array. Since the array is almost sorted, Insertionsort is efficient
+- This technique can be used to good advantage whenever we are dealing with recursive algorithm
+- We can be sure that all recursive algorithms will be processing small problem instances for a high percentage of time
+- In general, a low-overhead brute-force algorithm without much overhead is available
+- We therefore generally can improve overall timing with **hybrid algorithms**
+
+## Median of three partitioning
+
+- Another improvement is to choose a partitioning element that is more likely to divide the file near the middle
+- There are several approaches, but the most well-known way to find a better partitioning element is to take a sample of three elements from the file, then to use the media of three for a partitioning element
+- By choosing the three elements from *left, middle* and *right*, we can incorporate sentinels:
+  - 1. Sort the three elements
+  - 2. Exchange the one in the middle with `a[r - 1]`
+  - 3. Run the partitioning algorithm on `a[l + 1], ..., a[r - 2]`
+- This method is called the *median-of-three* method
+- The steps above assume that the pivot is the right outer most array value
+
+## Improved Quicksort with median-of-three
+
+```Java
+void quicksort(Comparable[] a, int l, int r) {
+    exch(a, (l + r) / 2, r - 1);
+    compExch(a, l, r - 1);
+    compExch(a, l, r);
+    compExch(a, r, r - 1);
+
+    int i = partition(a, l + 1, r - 1);
+
+    quicksort(a, l, i - 1);
+    quicksort(a, i + 1, r);
+}
+```
+
+## Properties of the media-of-three method
+
+- The median-of-three methods helps quicksort in three ways:
+  - 1. It makes the worst case much more unlikely to occur in any actual sort
+  - 2. It eliminates the need for a sentinel key for partitioning
+  - 3. It reduces the total average running time of the algorithm by about 5%
+- The combination of using median-of-three with a cutoff for small sub-files can improve the running time of the over the native implementation by **20% - 25%**
+- The median-of-three method is a special case of the general idea to estimate properties of the whole file
+- For Quicksort, we want to estimate the median to balance the partitioning
+- It is the nature of the algorithm that we do not need a particular good estimate: We just want to avoid a particular bad estimate
+- If we randomly chose three of five elements from the file, then we use the media of that sample for the partitioning, we get a better partition, but the improvement is offset by the cost of taking the sample
+
+## Duplicate key
+
+- When there are many duplicate keys present in the file to be sorted, the Quicksort does not have unacceptably poor performance, but they can be substantially improved
+- In a situation where there are large numbers of duplicate keys in the input file, the recursive nature of the Quicksort ensures that sub-files consisting solely of items with a single key value will often occur, so there is potential for significant improvement
+- One straightforward idea is to partition the file into three parts, one for each key smaller than, equal to and larger than the partitioning element
+
+## Method of Bentley and McIlroy (1993)
+
+A clever method for three-way partitioning works by modifying the standard partitioning scheme as follows:
+- Keep keys equal to partitioning element that are encountered in the left sub-file at the left of the file, and
+- Keep the keys equal to the partitioning element that are encountered in the right sub-file at the right end of the file
+- During the partitioning process, we maintain the following situation
+- Then, when the indices cross and the precise location for the equal keys is known, we swap into position all item with keys equal to the partitioning element
+- The extra overhead for duplicate keys is proportional to only the number of duplicate keys found
+- This method also works, if there are no duplicate keys. There is no extra overhead
+- This additional method for duplicate keys is linear time when there is only a constant number of key values
+
+## Better Quicksort with 3-way partitioning
+
+```Java
+// improved algorithm by Bentley and MdIlroy
+private void quicksort(Comparable a[], int l, int r) {
+    if (r <= l) {
+        return;
+    }
+
+    Comparable v = a[r];
+    int i = l - 1;
+    int j = r;
+    int p = l - 1;
+    int q = r;
+    int k;
+
+    while (true) {
+        while (less(a[i++], v));
+        while (less(v, a[j--])) {
+            if (j == l) {
+                break;
+            }
+        }
+
+        if (i >= j) {
+            break;
+        }
+
+        if (equal(a[i], v)) {
+            p++;
+            exch(a, p, i);
+        }
+
+        if (equal(v, a[j])) {
+            q--;
+            exch(a, q, j);
+        }
+    }
+
+    exch(a, i, r);
+    
+    j = i - 1;
+    i++;
+
+    for (k = l, k <= p; k++) {
+        exch(a, k, j);
+    }
+
+    for (k = r - 1; k >= q; k--) {
+        exch(a, k, i);
+    }
+
+    quicksort(a, l, j);
+    quicksort(a, i, r);
+}
+```
+
+- The example depicts the process of putting all keys equal to the partitioning element into position
+- We scan from the left to find an element that is not smaller then the partitioning element that the partitioning element from the right to find an element that is not larger than the partitioning element, then exchange them
+- If the element on the left after the exchange is equal to the partitioning element, we exchange it to the left end of the array; We processed similar on the right
+- When the indices cross, we put the partitioning element into position as before (next-to-bottom line), then exchange all the keys equal to it into position on either side of it (bottom line)
+
+# 5. Heaps and Heapsort <a name="fifth"> </a>
