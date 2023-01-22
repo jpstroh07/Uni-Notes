@@ -1420,3 +1420,256 @@ Hash:  2 0 0 4 4 4 0 2 0 4 3 3 0
 ![chaining](pictures/separate_chaining.png)
 
 # 7. Tries <a name="seventh"> </a>
+
+## String Symbol Table API
+
+Alternative for hashing, when key type is String
+
+```Java
+interface StringSymbolTable<V> {
+    void put(String key, V value);
+    V get(String key);
+    void delete(String key);
+}
+```
+
+## Tries
+
+- Store characteristics in Nodes (not keys)
+- Each Node has array with max R children, one for each possible character in the alphabet
+
+![trie](pictures/trie_example.png)
+
+## Search in a Trie
+
+- Search hit: Node where search ends has non-null value
+  - `get("shells")` returns 3
+  - `get("she")` return 0
+- Search miss: Reach null link or node where search ends has null value
+  - `get("shell")` returns null
+  - `get("shelter")` returns null
+
+## Insertion into a Trie
+
+- Follow links corresponding to each character in the key
+  - Encounter null link? Create new Node
+  - Encounter last character of key? Set value in that Node
+
+![trie insert](pictures/trie_insert.png)
+
+## Deletion from a Trie
+
+- Find Node corresponding to key and set value to null
+- If Node has null value and all null links, remove that Node (and recur)
+
+![trie delete](pictures/trie_delete.png)
+
+## RWayTrie code
+
+```Java
+public class RWayTrie<V> implements StringSymbolTable<V> {
+    
+    private static class Node<T> {
+        
+        private T value;
+        private final Node<T>[] next = new Node[R]
+    }
+
+    private static final int R = 256; // Size alphabet
+    private Node<V> root = new Node<>();
+
+    @Override
+    public void put(String key, V value) {
+        root = put(root, key, value, 0);
+    }
+
+    private Node<V> put(Node<V> node, String key, V value, int charIndex) {
+        if (node == null) {
+            node = new Node<>();
+        }
+
+        if(charIndex == key.length()) {
+            node.value = value;
+            return node;
+        }
+
+        char c = key.charAt(charIndex);
+        node.next[c] = put(node.next[c], key, value, charIndex + 1);
+
+        return node;
+    }
+
+    @Override
+    public V get(String key) {
+        Node<V> node = get(root, key, 0);
+
+        if (node == null) {
+            return null;
+        } else {
+            return node.value;
+        }
+    }
+
+    private Node<V> get(Node<V> node, String key, int charIndex) {
+        if (node == null) {
+            return null;
+        } 
+
+        if (charIndex == key.length()) {
+            return node;
+        }
+
+        char c = key.charAt(charIndex);
+        return get(node.next[c], key, charIndex + 1);
+    }
+
+    @Override
+    public void delete(String key) {
+        root = delete(root, key, 0);
+    }
+
+    private Node<V> delete(Node<V> node, String key, int charIndex) {
+        if (node == null) {
+            return null;
+        }
+
+        // This if-else will traverse down to the key Node and
+        // sets its value to null
+        if (charIndex == key.length()) {
+            node.value = null;
+        } else {
+            char c = key.charAt(charIndex);
+
+            // The new sub-trie node.next[c] is the old one from which
+            // the key-value pair is removed
+            node.next[c] = delete(node.next[c], key, charIndex + 1);
+        }
+
+        // After the recursive call, 'traversal to root' again to clean up
+        // unnecessary nodes
+        if (node.value != null) {
+            return node;
+        }
+
+        // If there is at least one sub-trie in this Node's array,
+        // the node itself is returned
+        for (char c = 0; c < R; c++) {
+            if (node.next[c] != null) {
+                return node;
+            }
+        }
+
+        // If this code is reached, there is no sub-trie anymore an this
+        // branch in the trie can be cut
+        return null; 
+    }
+}
+```
+
+## Performance of R-way Trie
+
+- Search hit: Examine all characters of key
+- Search miss: Sometimes after examining first character, typically after a few
+- Space inefficient: Many null links in each node
+
+=> Wasting space; Only useful for small R 
+
+## Improvement for big R: Ternary Trie
+
+- Store characters in Nodes (not keys)
+- Each Node has 3 children: smaller (left), equal (middle), larger (right)
+
+![ternary](pictures/ternary_trie.png)
+
+## Search in Ternary Trie
+
+- Follow links corresponding to each character in the key
+  - If less, take left link: If greater, take right link
+  - If equal, take the middle link and move to the next key character
+  - Search hit: Node where search ends has non-null value
+  - Search miss: Reach a null link or node where search ends has null value
+
+## TernaryTrie code
+
+```Java
+public class TernaryTree<V> implements StringSymbolTable<V> {
+
+    private class Node {
+        private V value;
+        private char c;
+        private Node left, mid, right;
+    }
+
+    private Node root;
+
+    @Override
+    public void put(String key, V value) {
+        root = put(root, key, value, 0);
+    }
+
+    private Node put(Node node, String key, V value, int charIndex) {
+        char c = key.charAt(charIndex);
+
+        if (node == null) {
+            node = new Node();
+            node.c = c;
+        }
+
+        if (c < node.c) {
+            node.left = put(node.left, key, value, charIndex);
+        } else if (c > node.c) {
+            node.right = put(node.right, key, value, charIndex);
+        } else if (charIndex < key.length() - 1) {
+            node.mid = put(node.mid, key, value, charIndex + 1);
+        } else {
+            node.value = value;
+        }
+
+        return node;
+    }
+
+    @Override
+    public V get(String key) {
+        Node node = get(root, key, 0);
+
+        if (node == null) {
+            return null;
+        }
+
+        return node.value;
+    }
+
+    private Node get(Node node, String key, int charIndex) {
+        if (node == null) {
+            return null;
+        }
+
+        char c = key.charAt(charIndex);
+
+        if (c < node.c) {
+            return get(node.left, key, charIndex);
+        } else if (c > node.c) {
+            return get(node.right, key, charIndex);
+        } else if (charIndex < key.length() - 1) {
+            return get(node.mid, key, charIndex + 1);
+        } else {
+            return node;
+        }
+    }
+}
+```
+
+## Ternary Search Trie vs Hashing
+
+- Hashing
+  - Need to examine entire key
+  - Search hit and miss cost about the same
+  - Performance relies on hash-function
+  - Does not support ordered symbol table operations
+- Ternary Search Trie
+  - Works only for String keys
+  - Only examines just enough key characters
+  - Search miss may involve only a few characters
+  - Supports ordered symbol table operations
+
+=> Ternary Search Tries can be faster than hashing (especially for search miss)
