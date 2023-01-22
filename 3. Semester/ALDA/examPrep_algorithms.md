@@ -1,5 +1,6 @@
 # Table of Contents
 1. [Recursion and Tree traversal](#first)
+2. [Intro into Sorters](#second)
 
 # 1. Recursion and Tree Traversal <a name="first"> </a>
 
@@ -293,3 +294,103 @@ private void traverseLevNR(Node h) {
     }
 }
 ```
+
+## Recursive Binary Tree algorithms
+
+Useful basic computations and operations for binary trees:
+
+```Java
+// counting nodes
+public int count() {
+    return count(root);
+}
+
+private int count(Node h) {
+    if (h == null) {
+        return 0;
+    }
+
+    return 1 + count(h.left) + count(h.right);
+}
+
+// calculating height
+public int height() {
+    return height(root);
+}
+
+private int height(Node h) {
+    if (h == null) {
+        return -1;
+    }
+
+    int u = height(h.left);
+    int v = height(h.right);
+
+    if (u > v) {
+        return u + 1;
+    } else {
+        return v + 1;
+    }
+}
+```
+
+# 2. Basic Sorters <a name="second"> </a>
+
+## Basic Terminology
+
+- Methods for sorting files of items containing **keys**
+- Items will be sorted in such a way, that their keys are ordered according to some well-defined ordering
+- Usually numerical or alphabetical order
+- Sorting methods that fit into memory are called **internal sorting**
+- Sorting methods using external storage, e.g. disk, are named **external sorting**
+- Applied data structures for internal sorting: Arrays and Linked Lists
+
+## Calculation of complexity for a sorting algorithm
+
+Note that the running time of a sorting algorithm is proportional:
+- to the number of **comparisons** that the algorithm uses
+- to the number of times that elements are **exchanged** (or moved)
+- or both of these points
+
+## Overview of sorting methods
+
+- Basic sorting methods: complexity O(N^2)
+  - Selectionsort
+  - Insertionsort
+- Advanced sorting methods: complexity O * (N * log(N))
+  - Mergesort
+  - Quicksort
+  - Heapsort
+- Items to be sorted have a **key** and a **value**
+- For the moment we assume that there are no duplicates in the list, so all keys are unique
+- When we talk about a list, we do not refer to any implementation such as making use of a Linked List
+- In all algorithms we sort for a non-decreasing list of items
+
+## Property: Stable sorting mechanisms
+
+**Definition**: </br>
+A sorting method is said to be **stable** if it preserves the relative order of items with duplicated keys in the file
+- Not all elementary sorting methods are stable
+- This means that stability is a certain property without using significant extra time or space
+- Instability becomes visible after two consecutive sort actions on the same list, in which the second key has duplicate values
+
+## Stable sort example
+
+Consider the following table:
+
+| Column 1       | Column 2       | Column 3       |
+|----------------|----------------|----------------|
+| Adams - 1      | Adams - 1      | Adams - 1      |
+| Black - 2      | Smith - 1      | Smith - 1      |
+| Brown - 4      | Washington - 2 | Black - 2      |
+| Jackson - 2    | Jackson - 2    | Jackson - 2    |
+| Jones - 4      | Black - 2      | Washington - 2 |
+| Smith - 1      | White - 3      | White - 3      |
+| Thompson - 4   | Wilson - 3     | Wilson - 3     |
+| Washington - 2 | Thompson - 4   | Brown - 4      |
+| White - 3      | Brown - 4      | Jones - 4      |
+| Wilson - 3     | Jones - 4      | Thompson - 4   |
+
+- Column 1: sorted by the first key (name)
+- Column 2: result of a non-stable sort of the first column on the second key (number)
+- Column 3: result of a stable sort of the first column on the second key (number)
