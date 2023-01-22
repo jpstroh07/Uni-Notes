@@ -4,6 +4,7 @@
 3. [Mergesort](#third)
 4. [Quicksort](#fourth)
 5. [Heaps and Heapsort](#fifth)
+6. [Hashing](#sixth)
 
 # 1. Recursion and Tree Traversal <a name="first"> </a>
 
@@ -926,3 +927,146 @@ private void quicksort(Comparable a[], int l, int r) {
 - When the indices cross, we put the partitioning element into position as before (next-to-bottom line), then exchange all the keys equal to it into position on either side of it (bottom line)
 
 # 5. Heaps and Heapsort <a name="fifth"> </a>
+
+## Heap definition
+- A **Heap** is a <ins>Binary Tree</ins>
+- A heap is organised: It is ordered to some degree
+- The heap condition is: The key in each **parent** is <ins>never larger</ins> than the keys in both of it's **child** notes
+- A heap is a binary tree that satisfies the heap condition
+- This heap is called a **minimum heap**
+- If every parent is <ins>never smaller</ins> than it's children, the heap is called a **maximum heap**
+
+## Example: Heap
+
+![heap](pictures/heap_example.png)
+
+This is a **maximum** heap, because the keys are characters and the natural ordering is the alphabet
+
+## Considering Elementary Implementations
+
+- Stacks and Queues: constant time operations exist for push / put and pop / get
+- Inserting AND removing the maximum operations in constant time is a more difficult task
+- Option 1: Keep sequence ordered -> remove and find max in constant time; not so for insert
+- Option 2: Do not keep sequence ordered -> insert in constant time; not so for remove and find max
+- Eager / lazy: lazy if work is delayed until it is necessary
+
+## Complexity of heap operations compared to alternatives
+
+|                 | insert | remove min / max | find min /  max |
+|-----------------|--------|------------------|-----------------|
+| ordered array   | N      | 1                | 1               |
+| ordered list    | N      | 1                | 1               |
+| unordered array | 1      | N                | N               |
+| unordered list  | 1      | N                | N               |
+| heap            | log(N) | log(N)           | 1               |
+
+=> General term for a data structure with these three operations is the **Priority Queue**
+
+## A max-heap (same for min-heap)
+
+- Definition heap ordering (the heap condition)
+  - A binary tree is **heap-ordered** if the key in each node is larger than or equal to the keys in that node's children (if there are any)
+- Definition proposition O.
+  - The largest key in a heap ordered binary tree is found at the root
+    - The heap-ordered tree is preferred to be complete: all levels filled except the lowest
+- Definition proposition P.
+  - The height of a complete binary tree with N nodes is |log(N)|
+  
+## Heapifying
+
+- Keep the heap condition satisfied: Heapifying or fixing the heap
+- The heap condition is a so called **invariant** (something that does not change), every operation on the heap should obey this invariant
+- If a node's key (inside the item) becomes larger than that node's parents key, these nodes must be exchanged so the node with the larger key is the parent and the node that was the parent is now its child
+- If a node's key becomes smaller than one or both of its children's key, then the parent node needs to be exchanged with the node which holds the largest key
+- Swim and sink methods provide the tolls to fix the heap when an item is inserted or when it's priority has changed
+
+```Java
+private void swim(int k) {
+    while (k > 1 && less(k / 2, k)) {
+        exch(k, k / 2);
+        k = k / 2;
+    }
+}
+
+private void sink(int k, int N) {
+    while (2 * k <= N) {
+        int j = 2 * k;
+        if (j < N && less(j, j + 1)) {
+            j++;
+        }
+
+        if (!less(k, j)) {
+            break;
+        }
+
+        exch(k, j);
+        k = j;
+    }
+}
+```
+
+## Heap-based Priority Queue
+
+```Java
+public class Heap<Item> implements Iterable<Item> {
+
+    private Item[] pq;
+    private int N;
+    private Comparator<Item> comp;
+
+    public Heap(Item[] keys) {
+        N = keys.length;
+        pq = (Item[]) new Object[keys.length + 1];
+
+        for (int i = 0; i < N; i++) {
+            pq[i + 1] = keys[i];
+        }
+
+        heapify();
+    }
+    
+    private void heapify() {
+        for (int k = N / 2; k >= 1; k--) {
+            sink(k);
+        }
+    }
+}
+```
+
+## Complexity of algorithms on Heaps
+
+- The **insert** operation for the ADT Priority Queue can be implemented with heap-ordered trees in such a way that insert requires no more than `1 + log(N)` comparisons
+- The **remove max** operation for the ADT Priority Queue can be implemented with heap-ordered trees in such a way that no more than `2 * log(N)` comparisons are required
+
+## Heapsort
+
+- Heapsort works like Selectionsort
+- Remove the root and place the last element (according to level traversal) at the root
+- The new root will make that the tree is not a heap anymore, so the tree needs to be heapified to be considered a heap again
+
+## Heapsort algorithm
+
+```Java
+public void sort(Comparable[] a) {
+    // exchange nodes to make the tree a heap (Node with index k = N / 2 is the last parent node)
+    for (int k = N / 2; k >= 1; k--) {
+        sink(a, k, N);
+    }
+
+    // exchange max item (index 1) with last node of unsorted part of the tree (index N) -> functions as a Selectionsort
+    while (N > 1) {
+        exch(a, 1, N--);
+        sink(a, 1, N);
+    }
+}
+```
+## Heapsort properties
+
+**Definition proposition S.**
+- Heapsort uses fewer than 2 * N * log(N) compares and half that many exchanges to sort N items
+- Property S and the in-place property are important for practical reasons
+  - Heapsort guarantees the in-place sorting of N items in time proportional to N * log(N)
+  - There is no worst-case input that makes the Heapsort significant slower (unlike Quicksort)
+  - Heapsort does not use extra space (unlike Mergesort)
+
+# 6. Hashing <a name="sixth"> </a>
