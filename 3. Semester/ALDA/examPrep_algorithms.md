@@ -2,6 +2,7 @@
 1. [Recursion and Tree traversal](#first)
 2. [Intro into Sorters: Selectionsort, Insertionsort & Bubblesort](#second)
 3. [Mergesort](#third)
+4. [Quicksort](#fourth)
 
 # 1. Recursion and Tree Traversal <a name="first"> </a>
 
@@ -634,3 +635,70 @@ The time complexity of a sorting algorithm is proportional
 **wc**: Worst case
 
 # 3. Mergesort <a name="third"> </a>
+
+## Word definitions
+
+- Merging: Take two sorted data structures and fill one new data structure, which will then be sorted too
+- Mergesort: Repeatedly merge two parts of a data structure in a systematic way to sort the whole data structure
+
+## Merge sort
+
+```Java
+void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
+    if (hi <= lo) {
+        return;
+    }
+
+    int mid = (lo + hi) / 2;
+
+    sort(a, aux, lo, mid);
+    sort(a, aux, mid + 1, hi);
+
+    merge(a, aux, lo, mid, hi);
+}
+
+private void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
+    for (int k = lo; k <= hi; k++) { // copy a[] to aux[]
+        aux[k] = a[k]
+    }
+
+    int i = lo;
+    int j = mid + 1;
+
+    for (int k = lo; k <= hi; k++) { // merge back to a[]
+        if (i > mid) {
+            a[k] = aux[j++];
+        } else if (j > hi) {
+            a[k] = aux[i++];
+        } else if (less(aux[j], aux[i])) {
+            a[k] = aux[j++];
+        } else {
+            a[k] = aux[i++];
+        }
+    }
+}
+```
+
+- The merge method merges the array ranges: `[lo ... mid] & [mid + 1 ... hi]`
+- The array `aux` is an auxiliary array, so additional storage is used
+- When the Mergesort is imagined as a tree, this is the top-down approach. It is also possible to create a bottom-up approach:
+
+```Java
+// non-recursive
+void sort(Comparable[] a) {
+    int N = a.length;
+    Comparable[] aux = new Comparable[N];
+
+    for (int n = 1; n < N; n = n + n) {
+        for (int i = 0; i < N - n; i += n + n) {
+            int lo = i;
+            int m = i + n - 1;
+            int hi = Math.min(i + n + n - 1, N - 1);
+
+            merge(a, aux, lo, m, hi);
+        }
+    }
+}
+```
+
+# 4. Quicksort <a name="fourth"> </a>
