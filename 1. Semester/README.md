@@ -2,4 +2,4 @@
 
 This is the folder for the notes in semester 1.
 
-As I only created notes for one of the five subjects, you will find only notes regarding BIIT. BIIT stands for "Business in Informatics"
+As I only created notes for one of the five subjects, you will find only notes regarding [BIIT](BIIT/examPrep_BIIT.md). BIIT stands for "Business in Informatics"

@@ -1,3 +1,6 @@
 # Semester 4
 
-This folder contains all notes to the lectures to the 4. Semester
+This is the folder of the notes from semester 4.
+
+Here you will find notes to subjects DBS2, :
+- [DBS2](DBS2) - Advanced Database Concepts: More in-depth Databases
