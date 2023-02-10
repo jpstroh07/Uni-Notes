@@ -20,8 +20,37 @@ sits_right_of(parvati_Patil, lavender_Brown).
 sits_right_of(lavender_Brown, dean_Thomas).
 
 sits_left_of(X, Y) :- sits_right_of(Y, X).
-are_neighbors_of(X, Y, Z) :- sits_left_of(Z, X), sits_right_of(Z, Y).
+are_neighbors_of(Left, Middle, Right) :- sits_left_of(Middle, Left), sits_right_of(Middle, Right).
 next_to_each_other(X, Y) :- sits_right_of(X, Y); sits_left_of(X, Y).
 
 % --------------------------- Task 2 --------------------------------
 
+male(paul).
+male(albert).
+male(vernon).
+male(james).
+male(dudley).
+male(harry).
+
+female(helen).
+female(ruth).
+female(petunia).
+female(lili).
+
+parent_of(paul, petunia).
+parent_of(paul, lili).
+parent_of(helen, petunia).
+parent_of(helen, lili).
+parent_of(albert, james).
+parent_of(ruth, james).
+parent_of(vernon, dudley).
+parent_of(petunia, dudley).
+parent_of(lili, harry).
+parent_of(james, harry).
+
+father_of(Father, Child) :- male(Father), parent_of(Father, Child).
+mother_of(Mother, Child) :- female(Mother), parent_of(Mother, Child).
+grandfather_of(Grandpa, Child) :- father_of(Grandpa, X), parent_of(X, Child).
+uncle_of(Uncle, Person) :- male(Uncle),female(Person).
+ancestor_of(Ancestor, Child) :- father_of(Ancestor, Child); mother_of(Ancestor, Child); grandfather_of(Ancestor, Child).
+not_parent(Parent, Child) :- not(parent_of(Parent, Child)).
