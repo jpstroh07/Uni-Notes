@@ -15,11 +15,11 @@
 %% true.
 %% ------------------------
 
-member1(X,[X|_]).
-member1(X,[_|Tail]):- member1(X,Tail).
+member1(X, [X | _]).
+member1(X, [_ | Tail]) :- member1(X, Tail).
 
-member2(X,[X|_]):- !.
-member2(X,[_|Tail]):- member2(X,Tail).
+member2(X, [X | _]) :- !.
+member2(X, [_ | Tail]) :- member2(X, Tail).
 
 
 %% ------------------------
@@ -30,8 +30,7 @@ member2(X,[_|Tail]):- member2(X,Tail).
 %% -----------------------
 
 translate([],[]).
-translate([a|InputTail],[b|OutputTail]):-
-		translate(InputTail,OutputTail).
+translate([a | InputTail], [b | OutputTail]) :- translate(InputTail, OutputTail).
 
 
 %% -----------------------
@@ -41,9 +40,8 @@ translate([a|InputTail],[b|OutputTail]):-
 %%
 %% -----------------------
 
-concatenate([],L,L). 
-concatenate([Head|Tail],L,[Head|NewTail]) :-
-		 concatenate(Tail,L,NewTail).
+concatenate([], L, L). 
+concatenate([Head | Tail], L, [Head | NewTail]) :- concatenate(Tail, L, NewTail).
 
 
 %% -----------------------
@@ -56,6 +54,5 @@ concatenate([Head|Tail],L,[Head|NewTail]) :-
 %%
 %% -----------------------
 
-element_of(X,[X|_],1).
-element_of(X,[_|Tail],Y):-element_of(X,Tail,Z),Y is Z+1.
-
+element_of(X, [X | _], 1).
+element_of(X, [_| Tail], Y) :- element_of(X, Tail, Z), Y is Z + 1.
