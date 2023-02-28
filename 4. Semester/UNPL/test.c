@@ -1,10 +1,18 @@
 #include <stdio.h>
-#include <float.h>
 
-int main() {
-    unsigned int i = -1;
+void foo(void);
 
-    printf("%d", i);
+int global = 16;
 
+int main()
+{
+    foo();
+    printf("Value of global (2): %d \n", global);
     return 0;
+}
+
+void foo(void)
+{
+    printf("Value of global (1): %d \n", global);
+    global = 17;
 }
