@@ -1,1 +1,1 @@
-Student: First name: jdifgh; Last name: diujfgh; Student number: 345
+Student: First name: Snell; Last name: Streo; Student number: 1234
