@@ -31,7 +31,7 @@ int main(void)
     printLL(&list1);
 
     printf("\n== Copying lists ==\n");
-    copyLL(&list2, &list1);
+    copyLL(&list1, &list2);
 
     printLL(&list2);
 
