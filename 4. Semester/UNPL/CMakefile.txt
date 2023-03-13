@@ -1,0 +1,8 @@
+calc: main.o MyMath.o
+	gcc main.o MyMath.o -o calc
+
+main.o: main.c MyMath.h
+	gcc -c main.c -o main.o
+
+MyMath.o: MyMath.c MyMath.h
+	gcc -c MyMath.c -o MyMath.o
